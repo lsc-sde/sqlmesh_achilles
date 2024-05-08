@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_620,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 620	Number of procedure occurrence records by condition occurrence start month
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

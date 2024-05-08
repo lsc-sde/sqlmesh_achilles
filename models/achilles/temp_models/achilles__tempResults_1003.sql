@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_1003,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1003	Number of distinct condition era concepts per person
 --HINT DISTRIBUTE_ON_KEY(count_value)
 WITH rawData (count_value) AS (

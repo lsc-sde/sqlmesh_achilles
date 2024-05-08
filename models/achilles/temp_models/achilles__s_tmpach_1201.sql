@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1201,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1201	Number of visits by place of service
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

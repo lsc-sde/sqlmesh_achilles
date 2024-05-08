@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_dist_103,
+  kind FULL,
+  cron '@daily'
+);
+
 with rawData (person_id, age_value) as
 (
 select p.person_id,

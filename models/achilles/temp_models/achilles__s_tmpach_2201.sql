@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_2201,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 2201	Number of note records, by note_type_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_2004,
+  kind FULL,
+  cron '@daily'
+);
+
 with rawData as (
   select
     2004 as analysis_id,

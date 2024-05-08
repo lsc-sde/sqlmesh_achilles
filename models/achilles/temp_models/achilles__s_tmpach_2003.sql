@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_2003,
+  kind FULL,
+  cron '@daily'
+);
+
 select
   2003 as analysis_id,
   CAST(NULL as VARCHAR(255)) as stratum_1,

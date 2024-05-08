@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__statsView_1817,
+  kind FULL,
+  cron '@daily'
+);
+
 --HINT DISTRIBUTE_ON_KEY(stratum1_id)
 select
   m.subject_id as stratum1_id,

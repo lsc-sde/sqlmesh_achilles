@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1	Number of persons
 select
   1 as analysis_id,

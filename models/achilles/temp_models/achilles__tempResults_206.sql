@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_206,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 206	Distribution of age by visit_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum1_id)
 with rawData (stratum1_id, stratum2_id, count_value) as (

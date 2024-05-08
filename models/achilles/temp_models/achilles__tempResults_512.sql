@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_512,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 512	Distribution of time from death to last drug
 --HINT DISTRIBUTE_ON_KEY(count_value)
 WITH rawData (count_value) AS (

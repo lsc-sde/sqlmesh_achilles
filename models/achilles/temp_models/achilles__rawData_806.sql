@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__rawData_806,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 806	Distribution of age by observation_concept_id
 --HINT DISTRIBUTE_ON_KEY(subject_id)
 select

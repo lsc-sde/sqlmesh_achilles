@@ -1,9 +1,11 @@
---HINT DISTRIBUTE_ON_KEY(analysis_id)
-{{
-  config(
-    materialized = 'table',
-    )
-}}
+
+MODEL (
+  name sqlmesh_achilles.achilles_results_dist,
+  kind FULL,
+  cron '@daily'
+);
+
+
 select
   analysis_id,
   stratum_1,

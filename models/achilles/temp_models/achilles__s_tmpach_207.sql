@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_207,
+  kind FULL,
+  cron '@daily'
+);
+
 --207	Number of visit records with invalid person_id
 select
   207 as analysis_id,

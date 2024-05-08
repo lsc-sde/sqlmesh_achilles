@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_2105,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 2105	Number of exposure records by device_concept_id by device_type_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

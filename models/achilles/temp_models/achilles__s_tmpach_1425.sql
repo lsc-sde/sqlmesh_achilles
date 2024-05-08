@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1425,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1425	Number of payer_plan_period records, by payer_source_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

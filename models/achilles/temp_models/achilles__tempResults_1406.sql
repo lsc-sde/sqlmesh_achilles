@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_1406,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1406	Length of payer plan (days) of first payer plan period by gender
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData (stratum1_id, count_value) as (

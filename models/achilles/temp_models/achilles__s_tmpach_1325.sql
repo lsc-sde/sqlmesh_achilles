@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1325,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1325	Number of visit_detail records, by visit_detail_source_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

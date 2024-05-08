@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__rawData_106,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 106	Length of observation (days) of first observation period by gender
 --HINT DISTRIBUTE_ON_KEY(gender_concept_id)
 select

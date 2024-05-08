@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__rawData_2106,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 2106	Distribution of age by device_concept_id
 --HINT DISTRIBUTE_ON_KEY(subject_id)
 select

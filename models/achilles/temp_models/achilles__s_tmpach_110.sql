@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_110,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 110	Number of persons with continuous observation in each month
 -- Note: using temp table instead of nested query because this gives vastly improved performance in Oracle
 --HINT DISTRIBUTE_ON_KEY(stratum_1)

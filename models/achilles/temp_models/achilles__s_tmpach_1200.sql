@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1200,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1200	Number of persons by place of service
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

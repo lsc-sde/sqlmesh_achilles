@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_1817,
+  kind FULL,
+  cron '@daily'
+);
+
 --HINT DISTRIBUTE_ON_KEY(stratum1_id)
 select
   1817 as analysis_id,

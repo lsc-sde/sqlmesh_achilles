@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1822,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1822	Number of measurement records, by measurement_concept_id and value_as_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

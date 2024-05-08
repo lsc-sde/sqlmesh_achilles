@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_702,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 702	Number of persons by drug occurrence start month, by drug_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

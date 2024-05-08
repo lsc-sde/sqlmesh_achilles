@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_dist_0,
+  kind FULL,
+  cron '@daily'
+);
+
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   0 as analysis_id,

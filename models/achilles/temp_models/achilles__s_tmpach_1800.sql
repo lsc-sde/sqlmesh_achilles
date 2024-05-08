@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1800,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1800	Number of persons with at least one measurement occurrence, by measurement_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_209,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 209	Number of visit records with invalid care_site_id
 select
   209 as analysis_id,

@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1413,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1413	Number of persons by number of payer plan periods
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_2,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 2	Number of persons by gender
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_0,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 0	cdm name, version of Achilles and date when pre-computations were executed
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

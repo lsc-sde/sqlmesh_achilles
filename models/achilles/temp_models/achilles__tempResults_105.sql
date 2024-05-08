@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_105,
+  kind FULL,
+  cron '@daily'
+);
+
 --HINT DISTRIBUTE_ON_KEY(count_value)
 with overallStats (avg_value, stdev_value, min_value, max_value, total) as (
   select

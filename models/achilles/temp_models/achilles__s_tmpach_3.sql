@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_3,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 3	Number of persons by year of birth
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

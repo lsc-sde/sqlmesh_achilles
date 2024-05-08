@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1819,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1819	Number of measurement records, by concept_id, with a value (with a mapped, non-null value_as_number)
 select
   1819 as analysis_id,

@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_403,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 403	Number of distinct condition occurrence concepts per person
 --HINT DISTRIBUTE_ON_KEY(count_value)
 with rawData (person_id, count_value) as (

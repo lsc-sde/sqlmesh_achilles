@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_220,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 220	Number of visit occurrence records by condition occurrence start month
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

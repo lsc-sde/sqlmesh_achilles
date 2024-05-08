@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_106,
+  kind FULL,
+  cron '@daily'
+);
+
 --HINT DISTRIBUTE_ON_KEY(gender_concept_id)
 with overallStats (
   gender_concept_id, avg_value, stdev_value, min_value, max_value, total

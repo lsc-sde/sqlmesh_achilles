@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__rawData_606,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 606	Distribution of age by procedure_concept_id
 --HINT DISTRIBUTE_ON_KEY(subject_id)
 select

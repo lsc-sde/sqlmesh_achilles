@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_703,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 703	Number of distinct drug exposure concepts per person
 --HINT DISTRIBUTE_ON_KEY(count_value)
 WITH rawData (count_value) AS (

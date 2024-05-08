@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_630,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 630	Number of procedure_occurrence records inside a valid observation period
 select
   630 as analysis_id,

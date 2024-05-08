@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1101,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1101	Number of persons by location state
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

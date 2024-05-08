@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_1407,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1407	Length of payer plan (days) of first payer plan period by age decile
 --HINT DISTRIBUTE_ON_KEY(stratum_id)
 with rawData (stratum_id, count_value) as (

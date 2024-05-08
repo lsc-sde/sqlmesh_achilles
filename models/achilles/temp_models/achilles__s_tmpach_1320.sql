@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1320,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1320	Number of visit detail records by visit detail start month
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

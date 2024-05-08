@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_506,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 506	Distribution of age at death by gender
 --HINT DISTRIBUTE_ON_KEY(stratum_id)
 WITH rawData (stratum_id, count_value) AS (

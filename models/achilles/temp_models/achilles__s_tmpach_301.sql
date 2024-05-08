@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_301,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 301	Number of providers by specialty concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

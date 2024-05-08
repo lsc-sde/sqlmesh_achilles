@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_225,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 225	Number of visit_occurrence records, by visit_source_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

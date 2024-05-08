@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_2002,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 2002	patients with at least 1 Mes and 1 Dx and 1 Rx
 select
   2002 as analysis_id,

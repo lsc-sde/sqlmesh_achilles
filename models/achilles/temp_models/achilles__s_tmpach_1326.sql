@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1326,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1326	Number of records by domain by visit detail concept id
 select
   1326 as analysis_id,

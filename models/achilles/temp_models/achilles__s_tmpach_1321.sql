@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1321,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1321	Number of persons by visit start year
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

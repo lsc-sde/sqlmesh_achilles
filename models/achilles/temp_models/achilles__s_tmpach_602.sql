@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_602,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 602	Number of persons by procedure occurrence start month, by procedure_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_300,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 300	Number of providers
 select
   300 as analysis_id,

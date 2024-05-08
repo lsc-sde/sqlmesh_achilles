@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_903,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 903	Number of distinct drug era concepts per person
 --HINT DISTRIBUTE_ON_KEY(count_value)
 WITH rawData (count_value) AS (

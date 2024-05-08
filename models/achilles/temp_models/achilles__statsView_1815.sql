@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__statsView_1815,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1815  Distribution of numeric values, by measurement_concept_id and unit_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum1_id)
 select

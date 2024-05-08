@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempObs_105,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 105	Length of observation (days) of first observation period
 --HINT DISTRIBUTE_ON_KEY(count_value)
 select

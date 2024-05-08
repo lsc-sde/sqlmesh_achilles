@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_800,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 800	Number of persons with at least one observation occurrence, by observation_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

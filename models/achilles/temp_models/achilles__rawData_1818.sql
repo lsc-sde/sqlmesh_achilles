@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__rawData_1818,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1818	Number of observation records below/within/above normal range, by observation_concept_id and unit_concept_id
 --HINT DISTRIBUTE_ON_KEY(person_id)
 select

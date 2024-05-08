@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_104,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 104	Distribution of age at first observation period by gender
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData (gender_concept_id, age_value) as (

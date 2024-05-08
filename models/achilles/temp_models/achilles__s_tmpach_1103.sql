@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1103,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1103	Number of care sites by location state
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

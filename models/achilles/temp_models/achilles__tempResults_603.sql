@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_603,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 603	Number of distinct procedure occurrence concepts per person
 --HINT DISTRIBUTE_ON_KEY(count_value)
 WITH rawData (count_value) AS (

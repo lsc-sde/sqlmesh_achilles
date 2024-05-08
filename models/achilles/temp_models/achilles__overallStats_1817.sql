@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__overallStats_1817,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1817	Distribution of high range, by observation_concept_id and unit_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum1_id)
 select

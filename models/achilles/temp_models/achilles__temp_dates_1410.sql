@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__temp_dates_1410,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1410	Number of persons with continuous payer plan in each month
 -- Note: using temp table instead of nested query because this gives vastly improved performance in Oracle
 --HINT DISTRIBUTE_ON_KEY(obs_month)

@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_513,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 513	Distribution of time from death to last visit
 --HINT DISTRIBUTE_ON_KEY(count_value)
 WITH rawData (count_value) AS (

@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_504,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 504	Number of persons with a death, by calendar year by gender by age decile
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

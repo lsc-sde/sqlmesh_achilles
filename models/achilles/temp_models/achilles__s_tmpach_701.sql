@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_701,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 701	Number of drug occurrence records, by drug_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

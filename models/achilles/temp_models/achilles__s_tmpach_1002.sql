@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1002,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1002	Number of persons by condition occurrence start month, by condition_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

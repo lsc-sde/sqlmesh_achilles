@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__rawData_906,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 906	Distribution of age by drug_concept_id
 --HINT DISTRIBUTE_ON_KEY(subject_id)
 select

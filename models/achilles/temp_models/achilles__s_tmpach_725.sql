@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_725,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 725	Number of drug_exposure records, by drug_source_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

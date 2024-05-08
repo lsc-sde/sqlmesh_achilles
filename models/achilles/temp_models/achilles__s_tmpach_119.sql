@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_119,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 119  Number of observation period records by period_type_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

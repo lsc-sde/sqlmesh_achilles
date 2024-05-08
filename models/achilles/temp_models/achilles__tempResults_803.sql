@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_803,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 803	Number of distinct observation occurrence concepts per person
 --HINT DISTRIBUTE_ON_KEY(count_value)
 WITH rawData (count_value) AS (

@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 103	Distribution of age at first observation period
 --HINT DISTRIBUTE_ON_KEY(count_value)
 with rawData (person_id, age_value) as (

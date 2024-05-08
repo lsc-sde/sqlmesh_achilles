@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_117,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 117	Number of persons with at least one day of observation in each month
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 -- generating date key sequences in a databricks SQL compatible fashion

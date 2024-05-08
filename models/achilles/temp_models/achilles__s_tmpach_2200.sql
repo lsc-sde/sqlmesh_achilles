@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_2200,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 2200	Number of persons with at least one note , by note_type_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

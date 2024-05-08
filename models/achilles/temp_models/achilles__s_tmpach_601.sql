@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_601,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 601	Number of procedure occurrence records, by procedure_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

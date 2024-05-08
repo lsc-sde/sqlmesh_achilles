@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_113,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 113	Number of persons by number of observation periods
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

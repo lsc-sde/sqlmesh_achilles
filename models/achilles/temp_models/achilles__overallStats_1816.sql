@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__overallStats_1816,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1816	Distribution of low range, by measurement_concept_id and unit_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum1_id)
 select

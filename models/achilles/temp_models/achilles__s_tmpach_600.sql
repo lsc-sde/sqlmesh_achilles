@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_600,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 600	Number of persons with at least one procedure occurrence, by procedure_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

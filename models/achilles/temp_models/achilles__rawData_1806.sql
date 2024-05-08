@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__rawData_1806,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1806	Distribution of age by measurement_concept_id
 --HINT DISTRIBUTE_ON_KEY(subject_id)
 select

@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__rawData_406,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 406	Distribution of age by condition_concept_id
 --HINT DISTRIBUTE_ON_KEY(subject_id)
 select

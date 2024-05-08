@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1304,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1304	Number of persons with at least one visit detail, by visit_detail_concept_id by calendar year by gender by age decile
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

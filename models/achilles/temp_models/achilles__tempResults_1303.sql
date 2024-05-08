@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_1303,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1303	Number of distinct visit detail concepts per person
 --HINT DISTRIBUTE_ON_KEY(count_value)
 with rawData (person_id, count_value) as (

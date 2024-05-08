@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__statsView_105,
+  kind FULL,
+  cron '@daily'
+);
+
 select
   count_value,
   count(*) as total,

@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_791,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 791	Number of total persons that have at least x drug exposures
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

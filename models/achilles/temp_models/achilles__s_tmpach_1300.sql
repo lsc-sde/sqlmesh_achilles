@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1300,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1300	Number of persons with at least one visit detail, by visit_detail_concept_id
 -- restricted to visits overlapping with observation period
 --HINT DISTRIBUTE_ON_KEY(stratum_1)

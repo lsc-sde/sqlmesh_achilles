@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_691,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 691	Number of persons that have at least x procedures
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

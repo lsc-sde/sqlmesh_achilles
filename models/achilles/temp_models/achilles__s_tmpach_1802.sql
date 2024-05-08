@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1802,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1802	Number of persons by measurement occurrence start month, by measurement_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

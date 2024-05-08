@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_213,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 213	Distribution of length of stay by visit_concept_id
 -- restrict to visits inside observation period
 --HINT DISTRIBUTE_ON_KEY(stratum_id)

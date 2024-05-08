@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_414,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 414	Number of condition occurrence records, by condition_status_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

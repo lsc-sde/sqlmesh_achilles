@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_920,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 920	Number of drug era records by drug era start month
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_210,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 210 Number of visit_occurrence records outside a valid observation period
 select
   210 as analysis_id,

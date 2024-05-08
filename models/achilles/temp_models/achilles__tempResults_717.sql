@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_717,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 717	Distribution of quantity by drug_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_id)
 WITH rawData (stratum_id, count_value) AS (

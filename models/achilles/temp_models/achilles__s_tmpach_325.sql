@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_325,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 325	Number of provider records, by specialty_source_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

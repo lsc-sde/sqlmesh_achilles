@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_11,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 11	Number of non-deceased persons by year of birth and by gender
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

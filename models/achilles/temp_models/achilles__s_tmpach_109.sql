@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_109,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 109	Number of persons with continuous observation in each year
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 -- generating date key sequences in a cross-dialect compatible fashion

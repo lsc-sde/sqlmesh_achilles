@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_525,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 525	Number of death records, by cause_source_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_111,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 111	Number of persons by observation period start month
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

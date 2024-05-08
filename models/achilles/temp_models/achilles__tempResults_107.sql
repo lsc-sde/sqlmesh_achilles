@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_107,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 107	Length of observation (days) of first observation period by age decile
 --HINT DISTRIBUTE_ON_KEY(age_decile)
 with rawData (age_decile, count_value) as (

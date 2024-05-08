@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1100,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1100	Number of persons by location 3-digit zip
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

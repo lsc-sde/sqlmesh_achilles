@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_826,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 826	Number of observation records, by value_as_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

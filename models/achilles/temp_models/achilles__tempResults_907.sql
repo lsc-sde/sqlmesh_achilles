@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_907,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 907	Distribution of drug era length, by drug_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData (stratum1_id, count_value) as (

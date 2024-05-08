@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_2102,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 2102	Number of persons by device by  start month, by device_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_801,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 801	Number of observation occurrence records, by observation_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

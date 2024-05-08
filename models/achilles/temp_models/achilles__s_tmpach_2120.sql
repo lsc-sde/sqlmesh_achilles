@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_2120,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 2120	Number of device exposure records by device exposure start month
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

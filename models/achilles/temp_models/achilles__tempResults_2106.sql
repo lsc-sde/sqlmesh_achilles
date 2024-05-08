@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_2106,
+  kind FULL,
+  cron '@daily'
+);
+
 --HINT DISTRIBUTE_ON_KEY(stratum1_id)
 with overallStats (
   stratum1_id, stratum2_id, avg_value, stdev_value, min_value, max_value, total

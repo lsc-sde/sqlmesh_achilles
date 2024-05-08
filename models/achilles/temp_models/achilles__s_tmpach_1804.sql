@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1804,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1804	Number of persons with at least one measurement occurrence, by measurement_concept_id by calendar year by gender by age decile
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

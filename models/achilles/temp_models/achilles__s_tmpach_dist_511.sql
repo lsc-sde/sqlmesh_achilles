@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_dist_511,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 511	Distribution of time from death to last condition
 --HINT DISTRIBUTE_ON_KEY(count_value)
 SELECT

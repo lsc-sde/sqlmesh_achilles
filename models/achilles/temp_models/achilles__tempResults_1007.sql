@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_1007,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1007	Distribution of condition era length, by condition_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData (stratum1_id, count_value) as (

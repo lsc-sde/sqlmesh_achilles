@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1814,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1814	Number of measurement records with no value (numeric or concept)
 select
   1814 as analysis_id,

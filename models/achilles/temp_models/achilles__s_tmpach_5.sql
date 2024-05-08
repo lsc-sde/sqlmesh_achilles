@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_5,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 5	Number of persons by ethnicity
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

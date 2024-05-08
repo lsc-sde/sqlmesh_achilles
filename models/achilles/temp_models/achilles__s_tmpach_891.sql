@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_891,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 891	Number of total persons that have at least x observations
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

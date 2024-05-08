@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1811,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1811	Number of measurement records with a value (with a mapped, non-null value_as_number)
 select
   1811 as analysis_id,

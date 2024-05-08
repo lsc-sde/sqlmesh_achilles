@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema._achilles__cleanup,
+  kind FULL,
+  cron '@daily'
+);
+
 {{
   config(
     materialized = 'view',

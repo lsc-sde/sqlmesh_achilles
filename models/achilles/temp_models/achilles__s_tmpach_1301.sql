@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1301,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1301	Number of visit detail records, by visit_detail_concept_id
 -- restricted to visits overlapping with observation period
 --HINT DISTRIBUTE_ON_KEY(stratum_1)

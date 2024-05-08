@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_108,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 108	Number of persons by length of observation period, in 30d increments
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (

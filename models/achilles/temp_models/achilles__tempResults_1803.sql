@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__tempResults_1803,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 1803	Number of distinct measurement occurrence concepts per person
 --HINT DISTRIBUTE_ON_KEY(count_value)
 with rawData (count_value) as (

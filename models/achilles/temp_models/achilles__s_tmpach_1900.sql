@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_1900,
+  kind FULL,
+  cron '@daily'
+);
+
 select
   1900 as analysis_id,
   cast('dummy' as varchar(255)) as stratum_1,

@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_303,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 303	Number of provider records, by specialty_concept_id, visit_concept_id
 --HINT DISTRIBUTE_ON_KEY(stratum_1)
 select

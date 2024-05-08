@@ -1,3 +1,10 @@
+
+MODEL (
+  name @temp_schema.achilles__s_tmpach_814,
+  kind FULL,
+  cron '@daily'
+);
+
 -- 814	Number of observation records with no value (numeric, string, or concept)
 select
   814 as analysis_id,
