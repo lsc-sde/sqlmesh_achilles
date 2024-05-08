@@ -1,0 +1,21 @@
+gateways:
+    databricks:
+        connection:
+            type: databricks
+            catalog: hive_metastore
+            server_hostname: ""
+            http_path: ""
+            access_token: ""
+            disable_databricks_connect: true
+        state_connection:
+            type: duckdb
+            catalogs:
+                persistent: 'sqlmesh_omop.duckdb'
+variables:
+  src_schema_omop: lth_omop
+  src_schema_vocab: lth_omop
+  src_database: dbw-lsc-uks-datadev-dlz-01
+default_gateway: databricks
+
+model_defaults:
+    dialect: databricks
