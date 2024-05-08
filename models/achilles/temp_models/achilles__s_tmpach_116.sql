@@ -17,7 +17,7 @@ with rawData as (
   inner join
     {{ source("omop", "observation_period" ) }} as op1
     on p1.person_id = op1.person_id,
-    {{ ref ("achilles__temp_dates_116") }} as t1
+    `@temp_schema`.`achilles__temp_dates_116` as t1
   where
     year(op1.OBSERVATION_PERIOD_START_DATE) <= t1.obs_year
     and year(op1.OBSERVATION_PERIOD_END_DATE) >= t1.obs_year

@@ -20,7 +20,7 @@ inner join
   {{ source("omop", "payer_plan_period" ) }} as ppp1
   on p1.person_id = ppp1.person_id
 ,
-  {{ ref ("achilles__temp_dates_1410") }}
+  `@temp_schema`.`achilles__temp_dates_1410`
 where
   ppp1.payer_plan_period_START_DATE <= obs_month_start
   and ppp1.payer_plan_period_END_DATE >= obs_month_end

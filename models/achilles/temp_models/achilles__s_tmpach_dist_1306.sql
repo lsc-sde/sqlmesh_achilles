@@ -24,4 +24,4 @@ select
   CAST(NULL as VARCHAR(255)) as stratum_4,
   CAST(NULL as VARCHAR(255)) as stratum_5
 from
-  {{ ref ("achilles__tempResults_1306") }}
+  `@temp_schema`.`achilles__tempResults_1306`
