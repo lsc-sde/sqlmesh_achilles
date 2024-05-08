@@ -16,9 +16,9 @@ select
   CAST(NULL as VARCHAR(255)) as stratum_5,
   COUNT(distinct po.person_id) as count_value
 from
-  {{ source("omop", "procedure_occurrence" ) }} as po
+  `@src_omop_schema`.`procedure_occurrence` as po
 inner join
-  {{ source("omop", "observation_period" ) }} as op
+  `@src_omop_schema`.`observation_period` as op
   on
     po.person_id = op.person_id
     and

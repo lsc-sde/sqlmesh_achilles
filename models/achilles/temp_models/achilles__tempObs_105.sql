@@ -18,6 +18,6 @@ from
       ROW_NUMBER() over (
         partition by op.person_id order by op.observation_period_start_date asc
       ) as rn
-    from {{ source("omop", "observation_period" ) }} as op
+    from `@src_omop_schema`.`observation_period` as op
   ) as A
 where rn = 1

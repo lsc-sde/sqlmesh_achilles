@@ -12,16 +12,16 @@ select
   p.gender_concept_id,
   o.device_exposure_start_year - p.year_of_birth as count_value
 from
-  {{ source("omop", "person" ) }} as p
+  `@src_omop_schema`.`person` as p
 inner join (
   select
     d.person_id,
     d.device_concept_id,
     MIN(YEAR(d.device_exposure_start_date)) as device_exposure_start_year
   from
-    {{ source("omop", "device_exposure" ) }} as d
+    `@src_omop_schema`.`device_exposure` as d
   inner join
-    {{ source("omop", "observation_period" ) }} as op
+    `@src_omop_schema`.`observation_period` as op
     on
       d.person_id = op.person_id
       and

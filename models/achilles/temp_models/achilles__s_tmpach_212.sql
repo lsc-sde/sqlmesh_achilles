@@ -13,9 +13,9 @@ with rawData as (
     YEAR(visit_start_date) as stratum_1,
     FLOOR((YEAR(visit_start_date) - p1.year_of_birth) / 10) as stratum_3,
     COUNT(distinct p1.PERSON_ID) as count_value
-  from {{ source("omop", "person" ) }} as p1
+  from `@src_omop_schema`.`person` as p1
   inner join
-    {{ source("omop", "visit_occurrence" ) }} as vo1
+    `@src_omop_schema`.`visit_occurrence` as vo1
     on p1.person_id = vo1.person_id
   group by
     YEAR(visit_start_date),

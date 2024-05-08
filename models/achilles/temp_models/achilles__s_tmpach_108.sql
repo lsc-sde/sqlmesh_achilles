@@ -15,7 +15,7 @@ with rawData as (
       / 30
     ) as stratum_1,
     count(distinct p1.person_id) as count_value
-  from {{ source("omop", "person" ) }} as p1
+  from `@src_omop_schema`.`person` as p1
   inner join
     (
       select
@@ -25,7 +25,7 @@ with rawData as (
         row_number() over (
           partition by person_id order by observation_period_start_date asc
         ) as rn1
-      from {{ source("omop", "observation_period" ) }}
+      from `@src_omop_schema`.`observation_period`
     ) as op1
     on p1.PERSON_ID = op1.PERSON_ID
   where op1.rn1 = 1

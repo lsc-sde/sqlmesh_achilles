@@ -74,9 +74,9 @@ inner join
           m.unit_concept_id,
           cast(m.value_as_number as FLOAT) as count_value
         from
-          {{ source("omop", "measurement" ) }} as m
+          `@src_omop_schema`.`measurement` as m
         inner join
-          {{ source("omop", "observation_period" ) }} as op
+          `@src_omop_schema`.`observation_period` as op
           on
             m.person_id = op.person_id
             and

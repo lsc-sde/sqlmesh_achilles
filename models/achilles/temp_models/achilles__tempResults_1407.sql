@@ -13,7 +13,7 @@ with rawData (stratum_id, count_value) as (
       as stratum_id,
     datediff( ppp1.payer_plan_period_end_date,ppp1.payer_plan_period_start_date
     ) as count_value
-  from {{ source("omop", "person" ) }} as p1
+  from `@src_omop_schema`.`person` as p1
   inner join
     (
       select
@@ -23,7 +23,7 @@ with rawData (stratum_id, count_value) as (
         row_number() over (
           partition by person_id order by payer_plan_period_start_date asc
         ) as rn1
-      from {{ source("omop", "payer_plan_period" ) }}
+      from `@src_omop_schema`.`payer_plan_period`
     ) as ppp1
     on p1.PERSON_ID = ppp1.PERSON_ID
   where ppp1.rn1 = 1

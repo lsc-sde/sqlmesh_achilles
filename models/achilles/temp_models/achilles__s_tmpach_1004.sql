@@ -16,13 +16,13 @@ with rawData as (
     as stratum_4,
     COUNT(distinct p.person_id) as count_value
   from
-    {{ source("omop", "person" ) }} as p
+    `@src_omop_schema`.`person` as p
   inner join
-    {{ source("omop", "condition_era" ) }} as ce
+    `@src_omop_schema`.`condition_era` as ce
     on
       p.person_id = ce.person_id
   inner join
-    {{ source("omop", "observation_period" ) }} as op
+    `@src_omop_schema`.`observation_period` as op
     on
       ce.person_id = op.person_id
       and

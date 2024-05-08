@@ -16,5 +16,5 @@ select
   cast(null as VARCHAR(255)) as stratum_5,
   count(distinct m.PERSON_ID) as count_value
 from
-  {{ source("omop", "note" ) }} as m
+  `@src_omop_schema`.`note` as m
 group by m.note_type_CONCEPT_ID

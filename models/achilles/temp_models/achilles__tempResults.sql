@@ -11,9 +11,9 @@ with rawData (person_id, age_value) as (
   select
     p.person_id,
     MIN(YEAR(observation_period_start_date)) - P.YEAR_OF_BIRTH as age_value
-  from {{ source("omop", "person" ) }} as p
+  from `@src_omop_schema`.`person` as p
   inner join
-    {{ source("omop", "observation_period" ) }} as op
+    `@src_omop_schema`.`observation_period` as op
     on p.person_id = op.person_id
   group by p.person_id, p.year_of_birth
 ),

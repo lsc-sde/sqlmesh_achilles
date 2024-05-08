@@ -12,16 +12,16 @@ select
   p.gender_concept_id,
   po.procedure_start_year - p.year_of_birth as count_value
 from
-  {{ source("omop", "person" ) }} as p
+  `@src_omop_schema`.`person` as p
 inner join (
   select
     po.person_id,
     po.procedure_concept_id,
     MIN(YEAR(po.procedure_date)) as procedure_start_year
   from
-    {{ source("omop", "procedure_occurrence" ) }} as po
+    `@src_omop_schema`.`procedure_occurrence` as po
   inner join
-    {{ source("omop", "observation_period" ) }} as op
+    `@src_omop_schema`.`observation_period` as op
     on
       po.person_id = op.person_id
       and

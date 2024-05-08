@@ -14,13 +14,13 @@ with rawData as (
     FLOOR((YEAR(d.death_date) - p.year_of_birth) / 10) as stratum_3,
     COUNT(distinct p.person_id) as count_value
   from
-    {{ source("omop", "person" ) }} as p
+    `@src_omop_schema`.`person` as p
   inner join
-    {{ source("omop", "death" ) }} as d
+    `@src_omop_schema`.`death` as d
     on
       p.person_id = d.person_id
   inner join
-    {{ source("omop", "observation_period" ) }} as op
+    `@src_omop_schema`.`observation_period` as op
     on
       d.person_id = op.person_id
       and

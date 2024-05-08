@@ -116,12 +116,12 @@ year_ranges as (
     obs_year
     >= (
       select min(year(observation_period_start_date))
-      from {{ source("omop", "observation_period" ) }}
+      from `@src_omop_schema`.`observation_period`
     )
     and obs_year
     <= (
       select max(year(observation_period_start_date))
-      from {{ source("omop", "observation_period" ) }}
+      from `@src_omop_schema`.`observation_period`
     )
 )
 
@@ -134,7 +134,7 @@ select
   cast(NULL as varchar(255)) as stratum_5,
   count(distinct op.person_id) as count_value
 from
-  {{ source("omop", "observation_period" ) }} as op
+  `@src_omop_schema`.`observation_period` as op
 cross join
   year_ranges as yr
 where

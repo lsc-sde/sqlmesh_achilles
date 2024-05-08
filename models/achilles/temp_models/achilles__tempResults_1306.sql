@@ -13,16 +13,16 @@ with rawData (stratum1_id, stratum2_id, count_value) as (
     p.gender_concept_id as stratum2_id,
     vd.visit_detail_start_year - p.year_of_birth as count_value
   from
-    {{ source("omop", "person" ) }} as p
+    `@src_omop_schema`.`person` as p
   inner join (
     select
       vd.person_id,
       vd.visit_detail_concept_id,
       MIN(YEAR(vd.visit_detail_start_date)) as visit_detail_start_year
     from
-      {{ source("omop", "visit_detail" ) }} as vd
+      `@src_omop_schema`.`visit_detail` as vd
     inner join
-      {{ source("omop", "observation_period" ) }} as op
+      `@src_omop_schema`.`observation_period` as op
       on
         vd.person_id = op.person_id
         and

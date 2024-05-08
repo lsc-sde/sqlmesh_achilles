@@ -9,4 +9,4 @@ MODEL (
 -- Note: using temp table instead of nested query because this gives vastly improved performance in Oracle
 select distinct YEAR(observation_period_start_date) as obs_year
 from
-  {{ source("omop", "observation_period" ) }}
+  `@src_omop_schema`.`observation_period`

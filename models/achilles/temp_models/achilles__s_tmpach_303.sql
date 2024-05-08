@@ -15,7 +15,7 @@ select
   cast(null as varchar(255)) as stratum_4,
   cast(null as varchar(255)) as stratum_5,
   count(*) as count_value
-from {{ source("omop", "provider" ) }} as p
-inner join {{ source("omop", "visit_occurrence" ) }} as vo
+from `@src_omop_schema`.`provider` as p
+inner join `@src_omop_schema`.`visit_occurrence` as vo
   on vo.provider_id = p.provider_id
 group by p.specialty_concept_id, visit_concept_id

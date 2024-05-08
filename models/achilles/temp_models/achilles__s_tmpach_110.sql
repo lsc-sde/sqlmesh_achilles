@@ -17,7 +17,7 @@ select
   CAST(null as VARCHAR(255)) as stratum_5,
   COUNT(distinct op1.PERSON_ID) as count_value
 from
-  {{ source("omop", "observation_period" ) }} as op1
+  `@src_omop_schema`.`observation_period` as op1
 inner join
   (
     select distinct
@@ -30,7 +30,7 @@ inner join
       )
       as obs_month_start,
       LAST_DAY(observation_period_start_date) as obs_month_end
-    from {{ source("omop", "observation_period" ) }}
+    from `@src_omop_schema`.`observation_period`
   ) as t1
   on
     op1.observation_period_start_date <= t1.obs_month_start

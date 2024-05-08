@@ -12,16 +12,16 @@ select
   p.gender_concept_id,
   (c.condition_start_year - p.year_of_birth) as count_value
 from
-  {{ source("omop", "person" ) }} as p
+  `@src_omop_schema`.`person` as p
 inner join (
   select
     co.person_id,
     co.condition_concept_id,
     MIN(YEAR(co.condition_start_date)) as condition_start_year
   from
-    {{ source("omop", "condition_occurrence" ) }} as co
+    `@src_omop_schema`.`condition_occurrence` as co
   inner join
-    {{ source("omop", "observation_period" ) }} as op
+    `@src_omop_schema`.`observation_period` as op
     on
       co.person_id = op.person_id
       and

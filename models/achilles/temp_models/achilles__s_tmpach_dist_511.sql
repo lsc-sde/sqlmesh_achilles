@@ -30,15 +30,15 @@ FROM (
     * (ROW_NUMBER() OVER (ORDER BY  DATEDIFF( co.max_date,d.death_date)))
     / (count(*) OVER () + 1) AS p1
   FROM
-    {{ source("omop", "death" ) }} AS d
+    `@src_omop_schema`.`death` AS d
     JOIN (
     SELECT
       co.person_id,
       MAX(co.condition_start_date) AS max_date
     FROM
-      {{ source("omop", "condition_occurrence" ) }} AS co
+      `@src_omop_schema`.`condition_occurrence` AS co
     INNER JOIN
-      {{ source("omop", "observation_period" ) }} AS op
+      `@src_omop_schema`.`observation_period` AS op
       ON
         co.person_id = op.person_id
         AND

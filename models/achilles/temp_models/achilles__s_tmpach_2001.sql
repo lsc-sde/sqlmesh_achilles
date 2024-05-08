@@ -21,9 +21,9 @@ from (
     from (
       select co.person_id
       from
-        {{ source("omop", "condition_occurrence" ) }} as co
+        `@src_omop_schema`.`condition_occurrence` as co
       inner join
-        {{ source("omop", "observation_period" ) }} as op
+        `@src_omop_schema`.`observation_period` as op
         on
           co.person_id = op.person_id
           and
@@ -36,9 +36,9 @@ from (
     from (
       select po.person_id
       from
-        {{ source("omop", "procedure_occurrence" ) }} as po
+        `@src_omop_schema`.`procedure_occurrence` as po
       inner join
-        {{ source("omop", "observation_period" ) }} as op
+        `@src_omop_schema`.`observation_period` as op
         on
           po.person_id = op.person_id
           and

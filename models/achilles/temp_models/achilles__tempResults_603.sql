@@ -10,9 +10,9 @@ MODEL (
 WITH rawData (count_value) AS (
   SELECT count(DISTINCT po.procedure_concept_id) AS count_value
   FROM
-    {{ source("omop", "procedure_occurrence" ) }} AS po
+    `@src_omop_schema`.`procedure_occurrence` AS po
     JOIN
-    {{ source("omop", "observation_period" ) }} AS op
+    `@src_omop_schema`.`observation_period` AS op
     ON
       po.person_id = op.person_id
       AND

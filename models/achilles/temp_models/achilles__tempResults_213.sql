@@ -12,8 +12,8 @@ with rawData (stratum_id, count_value) as (
   select
     visit_concept_id as stratum_id,
     datediff( visit_end_date, visit_start_date) as count_value
-  from {{ source("omop", "visit_occurrence" ) }} as vo inner join
-    {{ source("omop", "observation_period" ) }} as op
+  from `@src_omop_schema`.`visit_occurrence` as vo inner join
+    `@src_omop_schema`.`observation_period` as op
     on vo.person_id = op.person_id
   -- only include events that occur during observation period
   where

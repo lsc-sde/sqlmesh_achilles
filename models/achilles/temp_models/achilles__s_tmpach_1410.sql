@@ -15,9 +15,9 @@ select
   cast(null as VARCHAR(255)) as stratum_5,
   count(distinct p1.PERSON_ID) as count_value
 from
-  {{ source("omop", "person" ) }} as p1
+  `@src_omop_schema`.`person` as p1
 inner join
-  {{ source("omop", "payer_plan_period" ) }} as ppp1
+  `@src_omop_schema`.`payer_plan_period` as ppp1
   on p1.person_id = ppp1.person_id
 ,
   `@temp_schema`.`achilles__temp_dates_1410`

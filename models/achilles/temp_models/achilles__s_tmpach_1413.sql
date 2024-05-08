@@ -16,11 +16,11 @@ select
   cast(null as VARCHAR(255)) as stratum_5,
   count(distinct p1.PERSON_ID) as count_value
 from
-  {{ source("omop", "person" ) }} as p1
+  `@src_omop_schema`.`person` as p1
 inner join
   (select
     person_id,
     count(payer_plan_period_start_date) as num_periods
-  from {{ source("omop", "payer_plan_period" ) }} group by PERSON_ID) as ppp1
+  from `@src_omop_schema`.`payer_plan_period` group by PERSON_ID) as ppp1
   on p1.person_id = ppp1.person_id
 group by ppp1.num_periods

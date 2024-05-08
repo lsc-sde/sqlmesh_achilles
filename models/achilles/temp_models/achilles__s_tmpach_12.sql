@@ -15,5 +15,5 @@ select
   cast(null as VARCHAR(255)) as stratum_4,
   cast(null as VARCHAR(255)) as stratum_5,
   count(distinct person_id) as count_value
-from {{ source("omop", "person" ) }}
+from `@src_omop_schema`.`person`
 group by RACE_CONCEPT_ID, ETHNICITY_CONCEPT_ID

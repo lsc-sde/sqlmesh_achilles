@@ -16,5 +16,5 @@ select
   cast(null as VARCHAR(255)) as stratum_5,
   count(*) as count_value
 from
-  {{ source("omop", "observation_period" ) }} as op1
+  `@src_omop_schema`.`observation_period` as op1
 group by op1.period_type_concept_id

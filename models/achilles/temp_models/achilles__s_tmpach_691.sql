@@ -23,9 +23,9 @@ from (
     po.person_id,
     COUNT(po.procedure_occurrence_id) as prc_cnt
   from
-    {{ source("omop", "procedure_occurrence" ) }} as po
+    `@src_omop_schema`.`procedure_occurrence` as po
   inner join
-    {{ source("omop", "observation_period" ) }} as op
+    `@src_omop_schema`.`observation_period` as op
     on
       po.person_id = op.person_id
       and

@@ -30,7 +30,7 @@ left join
     select
       t2.obs_month,
       op2.*
-    from {{ source("omop", "observation_period" ) }} as op2, date_keys as t2
+    from `@src_omop_schema`.`observation_period` as op2, date_keys as t2
     where
       year(op2.observation_period_start_date) * 100
       + month(op2.observation_period_start_date)

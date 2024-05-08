@@ -16,4 +16,4 @@ select distinct
   ) as obs_month_start,
   LAST_DAY(payer_plan_period_start_date) as obs_month_end
 from
-  {{ source("omop", "payer_plan_period" ) }}
+  `@src_omop_schema`.`payer_plan_period`

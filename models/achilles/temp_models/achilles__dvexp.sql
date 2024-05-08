@@ -5,4 +5,4 @@ MODEL (
   cron '@daily'
 );
 
-select distinct person_id from {{ source("omop", "device_exposure" ) }}
+select distinct person_id from `@src_omop_schema`.`device_exposure`

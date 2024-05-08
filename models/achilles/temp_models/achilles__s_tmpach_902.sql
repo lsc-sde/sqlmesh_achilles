@@ -14,9 +14,9 @@ with rawData as (
     + MONTH(de.drug_era_start_date) as stratum_2,
     COUNT(distinct de.person_id) as count_value
   from
-    {{ source("omop", "drug_era" ) }} as de
+    `@src_omop_schema`.`drug_era` as de
   inner join
-    {{ source("omop", "observation_period" ) }} as op
+    `@src_omop_schema`.`observation_period` as op
     on
       de.person_id = op.person_id
       and

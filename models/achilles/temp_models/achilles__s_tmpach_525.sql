@@ -15,5 +15,5 @@ select
   cast(null as varchar(255)) as stratum_4,
   cast(null as varchar(255)) as stratum_5,
   count(*) as count_value
-from {{ source("omop", "death" ) }}
+from `@src_omop_schema`.`death`
 group by cause_source_concept_id

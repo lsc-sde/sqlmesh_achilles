@@ -15,8 +15,8 @@ select
   cast(null as VARCHAR(255)) as stratum_4,
   cast(null as VARCHAR(255)) as stratum_5,
   count(distinct person_id) as count_value
-from {{ source("omop", "person" ) }} as p1
-inner join {{ source("omop", "location" ) }} as l1
+from `@src_omop_schema`.`person` as p1
+inner join `@src_omop_schema`.`location` as l1
   on p1.location_id = l1.location_id
 where
   p1.location_id is not null

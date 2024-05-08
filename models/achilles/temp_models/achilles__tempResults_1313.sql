@@ -14,9 +14,9 @@ WITH rawData (stratum_id, count_value) AS (
     datediff( vd.visit_detail_end_date,vd.visit_detail_start_date)
       AS count_value
   FROM
-    {{ source("omop", "visit_detail" ) }} AS vd
+    `@src_omop_schema`.`visit_detail` AS vd
     JOIN
-    {{ source("omop", "observation_period" ) }} AS op
+    `@src_omop_schema`.`observation_period` AS op
     ON
       vd.person_id = op.person_id
       AND

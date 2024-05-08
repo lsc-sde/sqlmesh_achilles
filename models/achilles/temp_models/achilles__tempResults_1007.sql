@@ -13,9 +13,9 @@ with rawData (stratum1_id, count_value) as (
     datediff( ce.condition_era_end_date,ce.condition_era_start_date)
     as count_value
   from
-    {{ source("omop", "condition_era" ) }} as ce
+    `@src_omop_schema`.`condition_era` as ce
   inner join
-    {{ source("omop", "observation_period" ) }} as op
+    `@src_omop_schema`.`observation_period` as op
     on
       ce.person_id = op.person_id
       and

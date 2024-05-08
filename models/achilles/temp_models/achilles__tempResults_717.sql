@@ -12,9 +12,9 @@ WITH rawData (stratum_id, count_value) AS (
     de.drug_concept_id AS stratum_id,
     CAST(de.quantity AS FLOAT) AS count_value
   FROM
-    {{ source("omop", "drug_exposure" ) }} AS de
+    `@src_omop_schema`.`drug_exposure` AS de
     JOIN
-    {{ source("omop", "observation_period" ) }} AS op
+    `@src_omop_schema`.`observation_period` AS op
     ON
       de.person_id = op.person_id
       AND

@@ -13,9 +13,9 @@ with rawData as (
     floor((t1.obs_year - p1.year_of_birth) / 10) as stratum_3,
     count(distinct p1.PERSON_ID) as count_value
   from
-    {{ source("omop", "person" ) }} as p1
+    `@src_omop_schema`.`person` as p1
   inner join
-    {{ source("omop", "observation_period" ) }} as op1
+    `@src_omop_schema`.`observation_period` as op1
     on p1.person_id = op1.person_id,
     `@temp_schema`.`achilles__temp_dates_116` as t1
   where

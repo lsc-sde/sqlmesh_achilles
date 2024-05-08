@@ -15,7 +15,7 @@ select
   cast(null as varchar(255)) as stratum_5,
   count(vo1.PERSON_ID) as count_value
 from
-  {{ source("omop", "visit_occurrence" ) }} as vo1
-left join {{ source("omop", "person" ) }} as p1
+  `@src_omop_schema`.`visit_occurrence` as vo1
+left join `@src_omop_schema`.`person` as p1
   on p1.person_id = vo1.person_id
 where p1.person_id is null

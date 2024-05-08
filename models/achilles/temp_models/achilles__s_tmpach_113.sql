@@ -20,6 +20,6 @@ from
     select
       person_id,
       count(OBSERVATION_period_start_date) as num_periods
-    from {{ source("omop", "observation_period" ) }} group by PERSON_ID
+    from `@src_omop_schema`.`observation_period` group by PERSON_ID
   ) as op1
 group by op1.num_periods

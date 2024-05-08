@@ -10,15 +10,15 @@ MODEL (
 WITH rawData (count_value) AS (
   SELECT datediff( po.max_date,d.death_date) AS count_value
   FROM
-    {{ source("omop", "death" ) }} AS d
+    `@src_omop_schema`.`death` AS d
     JOIN (
     SELECT
       po.person_id,
       MAX(po.procedure_date) AS max_date
     FROM
-      {{ source("omop", "procedure_occurrence" ) }} AS po
+      `@src_omop_schema`.`procedure_occurrence` AS po
     INNER JOIN
-      {{ source("omop", "observation_period" ) }} AS op
+      `@src_omop_schema`.`observation_period` AS op
       ON
         po.person_id = op.person_id
         AND

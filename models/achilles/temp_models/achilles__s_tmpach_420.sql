@@ -13,9 +13,9 @@ with rawData as (
     + MONTH(co.condition_start_date) as stratum_1,
     COUNT(co.person_id) as count_value
   from
-    {{ source("omop", "condition_occurrence" ) }} as co
+    `@src_omop_schema`.`condition_occurrence` as co
   inner join
-    {{ source("omop", "observation_period" ) }} as op
+    `@src_omop_schema`.`observation_period` as op
     on
       co.person_id = op.person_id
       and

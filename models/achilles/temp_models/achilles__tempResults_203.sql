@@ -12,9 +12,9 @@ with rawData (person_id, count_value) as (
     vo.person_id,
     count(distinct vo.visit_concept_id) as count_value
   from
-    {{ source("omop", "visit_occurrence" ) }} as vo
+    `@src_omop_schema`.`visit_occurrence` as vo
     join
-    {{ source("omop", "observation_period" ) }} as op
+    `@src_omop_schema`.`observation_period` as op
     on
       vo.person_id = op.person_id
       and

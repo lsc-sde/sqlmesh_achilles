@@ -13,7 +13,7 @@ with rawData as (
     + MONTH(op1.observation_period_end_date) as stratum_1,
     COUNT(distinct op1.PERSON_ID) as count_value
   from
-    {{ source("omop", "observation_period" ) }} as op1
+    `@src_omop_schema`.`observation_period` as op1
   group by
     YEAR(op1.observation_period_end_date) * 100
     + MONTH(op1.observation_period_end_date)

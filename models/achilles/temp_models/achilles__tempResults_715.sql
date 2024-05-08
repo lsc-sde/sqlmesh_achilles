@@ -12,9 +12,9 @@ with rawData (stratum_id, count_value) as (
     de.drug_concept_id as stratum_id,
     de.days_supply as count_value
   from
-    {{ source("omop", "drug_exposure" ) }} as de
+    `@src_omop_schema`.`drug_exposure` as de
   inner join
-    {{ source("omop", "observation_period" ) }} as op
+    `@src_omop_schema`.`observation_period` as op
     on
       de.person_id = op.person_id
       and

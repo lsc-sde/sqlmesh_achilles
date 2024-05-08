@@ -20,9 +20,9 @@ from (
     COALESCE(vd.visit_detail_concept_id, 0) as visit_detail_concept_id,
     COUNT(*) as record_count
   from
-    {{ source("omop", "drug_exposure" ) }} as de
+    `@src_omop_schema`.`drug_exposure` as de
   left join
-    {{ source("omop", "visit_detail" ) }} as vd
+    `@src_omop_schema`.`visit_detail` as vd
     on
       de.visit_occurrence_id = vd.visit_occurrence_id
   group by
@@ -33,9 +33,9 @@ from (
     COALESCE(vd.visit_detail_concept_id, 0) as visit_detail_concept_id,
     COUNT(*) as record_count
   from
-    {{ source("omop", "condition_occurrence" ) }} as co
+    `@src_omop_schema`.`condition_occurrence` as co
   left join
-    {{ source("omop", "visit_detail" ) }} as vd
+    `@src_omop_schema`.`visit_detail` as vd
     on
       co.visit_occurrence_id = vd.visit_occurrence_id
   group by
@@ -46,9 +46,9 @@ from (
     COALESCE(visit_detail_concept_id, 0) as visit_detail_concept_id,
     COUNT(*) as record_count
   from
-    {{ source("omop", "device_exposure" ) }} as de
+    `@src_omop_schema`.`device_exposure` as de
   left join
-    {{ source("omop", "visit_detail" ) }} as vd
+    `@src_omop_schema`.`visit_detail` as vd
     on
       de.visit_occurrence_id = vd.visit_occurrence_id
   group by
@@ -59,9 +59,9 @@ from (
     COALESCE(vd.visit_detail_concept_id, 0) as visit_detail_concept_id,
     COUNT(*) as record_count
   from
-    {{ source("omop", "procedure_occurrence" ) }} as po
+    `@src_omop_schema`.`procedure_occurrence` as po
   left join
-    {{ source("omop", "visit_detail" ) }} as vd
+    `@src_omop_schema`.`visit_detail` as vd
     on
       po.visit_occurrence_id = vd.visit_occurrence_id
   group by
@@ -72,9 +72,9 @@ from (
     COALESCE(vd.visit_detail_concept_id, 0) as visit_detail_concept_id,
     COUNT(*) as record_count
   from
-    {{ source("omop", "measurement" ) }} as m
+    `@src_omop_schema`.`measurement` as m
   left join
-    {{ source("omop", "visit_detail" ) }} as vd
+    `@src_omop_schema`.`visit_detail` as vd
     on
       m.visit_occurrence_id = vd.visit_occurrence_id
   group by
@@ -85,9 +85,9 @@ from (
     COALESCE(vd.visit_detail_concept_id, 0) as visit_detail_concept_id,
     COUNT(*) as record_count
   from
-    {{ source("omop", "observation" ) }} as o
+    `@src_omop_schema`.`observation` as o
   left join
-    {{ source("omop", "visit_detail" ) }} as vd
+    `@src_omop_schema`.`visit_detail` as vd
     on
       o.visit_occurrence_id = vd.visit_occurrence_id
   group by

@@ -10,9 +10,9 @@ MODEL (
 WITH rawData (count_value) AS (
   SELECT count(DISTINCT ce.condition_concept_id) AS count_value
   FROM
-    {{ source("omop", "condition_era" ) }} AS ce
+    `@src_omop_schema`.`condition_era` AS ce
     JOIN
-    {{ source("omop", "observation_period" ) }} AS op
+    `@src_omop_schema`.`observation_period` AS op
     ON
       ce.person_id = op.person_id
       AND

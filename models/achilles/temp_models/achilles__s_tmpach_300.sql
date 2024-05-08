@@ -14,4 +14,4 @@ select
   cast(null as varchar(255)) as stratum_4,
   cast(null as varchar(255)) as stratum_5,
   count(distinct provider_id) as count_value
-from {{ source("omop", "provider" ) }}
+from `@src_omop_schema`.`provider`

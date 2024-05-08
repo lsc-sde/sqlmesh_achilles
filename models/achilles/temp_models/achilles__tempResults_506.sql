@@ -12,15 +12,15 @@ WITH rawData (stratum_id, count_value) AS (
     p.gender_concept_id AS stratum_id,
     d.death_year - p.year_of_birth AS count_value
   FROM
-    {{ source("omop", "person" ) }} AS p
+    `@src_omop_schema`.`person` AS p
     JOIN (
     SELECT
       d.person_id,
       MIN(YEAR(d.death_date)) AS death_year
     FROM
-      {{ source("omop", "death" ) }} AS d
+      `@src_omop_schema`.`death` AS d
     INNER JOIN
-      {{ source("omop", "observation_period" ) }} AS op
+      `@src_omop_schema`.`observation_period` AS op
       ON
         d.person_id = op.person_id
         AND

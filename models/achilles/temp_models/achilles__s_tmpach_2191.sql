@@ -23,9 +23,9 @@ from (
     d.person_id,
     COUNT(d.device_exposure_id) as device_count
   from
-    {{ source("omop", "device_exposure" ) }} as d
+    `@src_omop_schema`.`device_exposure` as d
   inner join
-    {{ source("omop", "observation_period" ) }} as op
+    `@src_omop_schema`.`observation_period` as op
     on
       d.person_id = op.person_id
       and

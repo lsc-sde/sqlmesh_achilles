@@ -15,8 +15,8 @@ select
   cast(null as VARCHAR(255)) as stratum_4,
   cast(null as VARCHAR(255)) as stratum_5,
   count(visit_occurrence_id) as count_value
-from {{ source("omop", "visit_occurrence" ) }} as vo1
-inner join {{ source("omop", "care_site" ) }} as cs1
+from `@src_omop_schema`.`visit_occurrence` as vo1
+inner join `@src_omop_schema`.`care_site` as cs1
   on vo1.care_site_id = cs1.care_site_id
 where
   vo1.care_site_id is not null

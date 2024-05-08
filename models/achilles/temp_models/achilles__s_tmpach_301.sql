@@ -15,5 +15,5 @@ select
   cast(null as VARCHAR(255)) as stratum_4,
   cast(null as VARCHAR(255)) as stratum_5,
   count(distinct provider_id) as count_value
-from {{ source("omop", "provider" ) }}
+from `@src_omop_schema`.`provider`
 group by specialty_CONCEPT_ID

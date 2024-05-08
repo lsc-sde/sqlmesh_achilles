@@ -23,4 +23,4 @@ select
   cast(null as FLOAT) as p75_value,
   cast(null as FLOAT) as p90_value,
   count(distinct person_id) as count_value
-from {{ source("omop", "person" ) }}
+from `@src_omop_schema`.`person`

@@ -12,9 +12,9 @@ with rawData as (
     YEAR(po.procedure_date) * 100 + MONTH(po.procedure_date) as stratum_1,
     COUNT(po.person_id) as count_value
   from
-    {{ source("omop", "procedure_occurrence" ) }} as po
+    `@src_omop_schema`.`procedure_occurrence` as po
   inner join
-    {{ source("omop", "observation_period" ) }} as op
+    `@src_omop_schema`.`observation_period` as op
     on
       po.person_id = op.person_id
       and

@@ -23,9 +23,9 @@ from (
     m.person_id,
     COUNT(m.measurement_id) as meas_cnt
   from
-    {{ source("omop", "measurement" ) }} as m
+    `@src_omop_schema`.`measurement` as m
   inner join
-    {{ source("omop", "observation_period" ) }} as op
+    `@src_omop_schema`.`observation_period` as op
     on
       m.person_id = op.person_id
       and
