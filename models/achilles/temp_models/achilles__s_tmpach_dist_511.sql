@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 511	Distribution of time from death to last condition
---HINT DISTRIBUTE_ON_KEY(count_value)
 SELECT
   511 AS analysis_id,
   CAST(NULL AS VARCHAR(255)) AS stratum_1,
@@ -30,15 +29,15 @@ FROM (
     * (ROW_NUMBER() OVER (ORDER BY  DATEDIFF( co.max_date,d.death_date)))
     / (count(*) OVER () + 1) AS p1
   FROM
-    `@src_omop_schema`.`death` AS d
+    `@src_database`.`@src_schema_omop`.`death` AS d
     JOIN (
     SELECT
       co.person_id,
       MAX(co.condition_start_date) AS max_date
     FROM
-      `@src_omop_schema`.`condition_occurrence` AS co
+      `@src_database`.`@src_schema_omop`.`condition_occurrence` AS co
     INNER JOIN
-      `@src_omop_schema`.`observation_period` AS op
+      `@src_database`.`@src_schema_omop`.`observation_period` AS op
       ON
         co.person_id = op.person_id
         AND

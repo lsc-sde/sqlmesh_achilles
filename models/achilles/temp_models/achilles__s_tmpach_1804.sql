@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 1804	Number of persons with at least one measurement occurrence, by measurement_concept_id by calendar year by gender by age decile
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     m.measurement_concept_id as stratum_1,
@@ -15,13 +14,13 @@ with rawData as (
     FLOOR((YEAR(m.measurement_date) - p.year_of_birth) / 10) as stratum_4,
     COUNT(distinct p.person_id) as count_value
   from
-    `@src_omop_schema`.`person` as p
+    `@src_database`.`@src_schema_omop`.`person` as p
   inner join
-    `@src_omop_schema`.`measurement` as m
+    `@src_database`.`@src_schema_omop`.`measurement` as m
     on
       p.person_id = m.person_id
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       m.person_id = op.person_id
       and

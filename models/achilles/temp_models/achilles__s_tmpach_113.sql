@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 113	Number of persons by number of observation periods
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   113 as analysis_id,
   cast(op1.num_periods as VARCHAR(255)) as stratum_1,
@@ -20,6 +19,6 @@ from
     select
       person_id,
       count(OBSERVATION_period_start_date) as num_periods
-    from `@src_omop_schema`.`observation_period` group by PERSON_ID
+    from `@src_database`.`@src_schema_omop`.`observation_period` group by PERSON_ID
   ) as op1
 group by op1.num_periods

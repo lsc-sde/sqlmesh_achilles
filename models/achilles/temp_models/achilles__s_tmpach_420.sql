@@ -6,16 +6,15 @@ MODEL (
 );
 
 -- 420	Number of condition occurrence records by condition occurrence start month
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     YEAR(co.condition_start_date) * 100
     + MONTH(co.condition_start_date) as stratum_1,
     COUNT(co.person_id) as count_value
   from
-    `@src_omop_schema`.`condition_occurrence` as co
+    `@src_database`.`@src_schema_omop`.`condition_occurrence` as co
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       co.person_id = op.person_id
       and

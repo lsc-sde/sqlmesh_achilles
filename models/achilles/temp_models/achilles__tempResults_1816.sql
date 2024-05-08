@@ -5,7 +5,6 @@ MODEL (
   cron '@daily'
 );
 
---HINT DISTRIBUTE_ON_KEY(stratum1_id)
 select
   1816 as analysis_id,
   cast(o.stratum1_id as VARCHAR(255)) as stratum1_id,
@@ -48,9 +47,9 @@ from
       s.count_value,
       s.total,
       sum(p.total) as accumulated
-    from {{ ref( "achilles__statsView_1816" ) }} as s
+    from `@temp_schema`.`achilles__statsView_1816` as s
     inner join
-      {{ ref( "achilles__statsView_1816" ) }} as p
+      `@temp_schema`.`achilles__statsView_1816` as p
       on
         s.stratum1_id = p.stratum1_id
         and s.stratum2_id = p.stratum2_id
@@ -58,7 +57,7 @@ from
     group by s.stratum1_id, s.stratum2_id, s.count_value, s.total, s.rn
   ) as p
 inner join
-  {{ ref('achilles__overallStats_1816') }} as o
+  `@temp_schema`.`achilles__overallStats_1816` as o
   on p.stratum1_id = o.stratum1_id and p.stratum2_id = o.stratum2_id
 group by
   o.stratum1_id,

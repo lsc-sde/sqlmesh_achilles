@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 504	Number of persons with a death, by calendar year by gender by age decile
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     p.gender_concept_id as stratum_2,
@@ -14,13 +13,13 @@ with rawData as (
     FLOOR((YEAR(d.death_date) - p.year_of_birth) / 10) as stratum_3,
     COUNT(distinct p.person_id) as count_value
   from
-    `@src_omop_schema`.`person` as p
+    `@src_database`.`@src_schema_omop`.`person` as p
   inner join
-    `@src_omop_schema`.`death` as d
+    `@src_database`.`@src_schema_omop`.`death` as d
     on
       p.person_id = d.person_id
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       d.person_id = op.person_id
       and

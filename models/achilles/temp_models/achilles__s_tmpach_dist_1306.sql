@@ -5,7 +5,6 @@ MODEL (
   cron '@daily'
 );
 
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   analysis_id,
   stratum1_id as stratum_1,

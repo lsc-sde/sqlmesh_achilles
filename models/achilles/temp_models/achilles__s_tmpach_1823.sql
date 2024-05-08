@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 1823	Number of measurement records, by measurement_concept_id and operator_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   1823 as analysis_id,
   CAST(m.measurement_concept_id as VARCHAR(255)) as stratum_1,
@@ -16,9 +15,9 @@ select
   CAST(NULL as VARCHAR(255)) as stratum_5,
   COUNT(*) as count_value
 from
-  `@src_omop_schema`.`measurement` as m
+  `@src_database`.`@src_schema_omop`.`measurement` as m
 inner join
-  `@src_omop_schema`.`observation_period` as op
+  `@src_database`.`@src_schema_omop`.`observation_period` as op
   on
     m.person_id = op.person_id
     and

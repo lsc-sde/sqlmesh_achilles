@@ -15,9 +15,9 @@ select
   CAST(NULL as VARCHAR(255)) as stratum_5,
   COUNT(m.person_id) as count_value
 from
-  `@src_omop_schema`.`measurement` as m
+  `@src_database`.`@src_schema_omop`.`measurement` as m
 inner join
-  `@src_omop_schema`.`observation_period` as op
+  `@src_database`.`@src_schema_omop`.`observation_period` as op
   on
     m.person_id = op.person_id
     and

@@ -7,16 +7,15 @@ MODEL (
 
 -- 1313	Distribution of length of stay by visit_detail_concept_id
 -- restrict to visits inside observation period
---HINT DISTRIBUTE_ON_KEY(stratum_id)
 WITH rawData (stratum_id, count_value) AS (
   SELECT
     vd.visit_detail_concept_id AS stratum_id,
     datediff( vd.visit_detail_end_date,vd.visit_detail_start_date)
       AS count_value
   FROM
-    `@src_omop_schema`.`visit_detail` AS vd
+    `@src_database`.`@src_schema_omop`.`visit_detail` AS vd
     JOIN
-    `@src_omop_schema`.`observation_period` AS op
+    `@src_database`.`@src_schema_omop`.`observation_period` AS op
     ON
       vd.person_id = op.person_id
       AND

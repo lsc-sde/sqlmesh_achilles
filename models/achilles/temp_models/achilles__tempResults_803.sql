@@ -6,13 +6,12 @@ MODEL (
 );
 
 -- 803	Number of distinct observation occurrence concepts per person
---HINT DISTRIBUTE_ON_KEY(count_value)
 WITH rawData (count_value) AS (
   SELECT count(DISTINCT o.observation_concept_id) AS count_value
   FROM
-    `@src_omop_schema`.`observation` AS o
+    `@src_database`.`@src_schema_omop`.`observation` AS o
     JOIN
-    `@src_omop_schema`.`observation_period` AS op
+    `@src_database`.`@src_schema_omop`.`observation_period` AS op
     ON
       o.person_id = op.person_id
       AND

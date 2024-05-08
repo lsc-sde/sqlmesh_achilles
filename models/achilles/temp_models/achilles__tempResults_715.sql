@@ -6,15 +6,14 @@ MODEL (
 );
 
 -- 715	Distribution of days_supply by drug_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum_id)
 with rawData (stratum_id, count_value) as (
   select
     de.drug_concept_id as stratum_id,
     de.days_supply as count_value
   from
-    `@src_omop_schema`.`drug_exposure` as de
+    `@src_database`.`@src_schema_omop`.`drug_exposure` as de
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       de.person_id = op.person_id
       and

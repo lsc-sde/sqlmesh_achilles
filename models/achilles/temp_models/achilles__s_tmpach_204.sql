@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 204	Number of persons with at least one visit occurrence, by visit_concept_id by calendar year by gender by age decile
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     vo.visit_concept_id as stratum_1,
@@ -15,13 +14,13 @@ with rawData as (
     FLOOR((YEAR(vo.visit_start_date) - p.year_of_birth) / 10) as stratum_4,
     COUNT(distinct p.person_id) as count_value
   from
-    `@src_omop_schema`.`person` as p
+    `@src_database`.`@src_schema_omop`.`person` as p
   inner join
-    `@src_omop_schema`.`visit_occurrence` as vo
+    `@src_database`.`@src_schema_omop`.`visit_occurrence` as vo
     on
       p.person_id = vo.person_id
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       vo.person_id = op.person_id
       and

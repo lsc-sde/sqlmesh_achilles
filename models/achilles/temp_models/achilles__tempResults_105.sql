@@ -5,7 +5,6 @@ MODEL (
   cron '@daily'
 );
 
---HINT DISTRIBUTE_ON_KEY(count_value)
 with overallStats (avg_value, stdev_value, min_value, max_value, total) as (
   select
     cast(avg(1.0 * count_value) as FLOAT) as avg_value,
@@ -13,7 +12,7 @@ with overallStats (avg_value, stdev_value, min_value, max_value, total) as (
     min(count_value) as min_value,
     max(count_value) as max_value,
     count(*) as total
-  from {{ ref( "achilles__tempObs_105" ) }}
+  from `@temp_schema`.`achilles__tempObs_105`
 ),
 
 priorStats (count_value, total, accumulated) as (
@@ -21,8 +20,8 @@ priorStats (count_value, total, accumulated) as (
     s.count_value,
     s.total,
     sum(p.total) as accumulated
-  from {{ ref( "achilles__statsView_105" ) }} as s
-  inner join {{ ref('achilles__statsView_105') }} as p on s.rn >= p.rn
+  from `@temp_schema`.`achilles__statsView_105` as s
+  inner join `@temp_schema`.`achilles__statsView_105` as p on s.rn >= p.rn
   group by s.count_value, s.total, s.rn
 )
 

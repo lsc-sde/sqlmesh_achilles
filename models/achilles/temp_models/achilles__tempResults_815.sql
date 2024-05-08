@@ -5,7 +5,6 @@ MODEL (
   cron '@daily'
 );
 
---HINT DISTRIBUTE_ON_KEY(stratum1_id)
 with priorStats (stratum1_id, stratum2_id, count_value, total, accumulated) as (
   select
     s.stratum1_id,
@@ -13,9 +12,9 @@ with priorStats (stratum1_id, stratum2_id, count_value, total, accumulated) as (
     s.count_value,
     s.total,
     sum(p.total) as accumulated
-  from {{ ref( "achilles__statsView_815" ) }} as s
+  from `@temp_schema`.`achilles__statsView_815` as s
   inner join
-    {{ ref('achilles__statsView_815') }} as p
+    `@temp_schema`.`achilles__statsView_815` as p
     on
       s.stratum1_id = p.stratum1_id
       and s.stratum2_id = p.stratum2_id
@@ -59,7 +58,7 @@ select
   ) as p90_value
 from priorStats as p
 inner join
-  {{ ref('achilles__overallStats_815') }} as o
+  `@temp_schema`.`achilles__overallStats_815` as o
   on p.stratum1_id = o.stratum1_id and p.stratum2_id = o.stratum2_id
 group by
   o.stratum1_id,

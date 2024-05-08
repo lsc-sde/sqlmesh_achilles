@@ -6,8 +6,7 @@ MODEL (
 );
 
 -- 109	Number of persons with continuous observation in each year
---HINT DISTRIBUTE_ON_KEY(stratum_1)
--- generating date key sequences in a cross-dialect compatible fashion
+
 with century as (
   select '19' as num
   union
@@ -116,12 +115,12 @@ year_ranges as (
     obs_year
     >= (
       select min(year(observation_period_start_date))
-      from `@src_omop_schema`.`observation_period`
+      from `@src_database`.`@src_schema_omop`.`observation_period`
     )
     and obs_year
     <= (
       select max(year(observation_period_start_date))
-      from `@src_omop_schema`.`observation_period`
+      from `@src_database`.`@src_schema_omop`.`observation_period`
     )
 )
 
@@ -134,7 +133,7 @@ select
   cast(NULL as varchar(255)) as stratum_5,
   count(distinct op.person_id) as count_value
 from
-  `@src_omop_schema`.`observation_period` as op
+  `@src_database`.`@src_schema_omop`.`observation_period` as op
 cross join
   year_ranges as yr
 where

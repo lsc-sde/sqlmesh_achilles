@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 11	Number of non-deceased persons by year of birth and by gender
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   11 as analysis_id,
   cast(P.year_of_birth as VARCHAR(255)) as stratum_1,
@@ -15,12 +14,12 @@ select
   cast(null as VARCHAR(255)) as stratum_4,
   cast(null as VARCHAR(255)) as stratum_5,
   count(distinct P.person_id) as count_value
-from `@src_omop_schema`.`person` as P
+from `@src_database`.`@src_schema_omop`.`person` as P
 where
   not exists
   (
     select 1
-    from `@src_omop_schema`.`death` as D
+    from `@src_database`.`@src_schema_omop`.`death` as D
     where P.person_id = D.person_id
   )
 group by P.YEAR_OF_BIRTH, P.gender_concept_id

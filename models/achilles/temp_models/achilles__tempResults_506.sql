@@ -6,21 +6,20 @@ MODEL (
 );
 
 -- 506	Distribution of age at death by gender
---HINT DISTRIBUTE_ON_KEY(stratum_id)
 WITH rawData (stratum_id, count_value) AS (
   SELECT
     p.gender_concept_id AS stratum_id,
     d.death_year - p.year_of_birth AS count_value
   FROM
-    `@src_omop_schema`.`person` AS p
+    `@src_database`.`@src_schema_omop`.`person` AS p
     JOIN (
     SELECT
       d.person_id,
       MIN(YEAR(d.death_date)) AS death_year
     FROM
-      `@src_omop_schema`.`death` AS d
+      `@src_database`.`@src_schema_omop`.`death` AS d
     INNER JOIN
-      `@src_omop_schema`.`observation_period` AS op
+      `@src_database`.`@src_schema_omop`.`observation_period` AS op
       ON
         d.person_id = op.person_id
         AND

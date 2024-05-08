@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 500	Number of persons with death, by cause_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   500 as analysis_id,
   CAST(d.cause_concept_id as VARCHAR(255)) as stratum_1,
@@ -16,9 +15,9 @@ select
   CAST(NULL as VARCHAR(255)) as stratum_5,
   COUNT(distinct d.person_id) as count_value
 from
-  `@src_omop_schema`.`death` as d
+  `@src_database`.`@src_schema_omop`.`death` as d
 inner join
-  `@src_omop_schema`.`observation_period` as op
+  `@src_database`.`@src_schema_omop`.`observation_period` as op
   on
     d.person_id = op.person_id
     and

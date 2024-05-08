@@ -5,7 +5,6 @@ MODEL (
   cron '@daily'
 );
 
---HINT DISTRIBUTE_ON_KEY(gender_concept_id)
 with overallStats (
   gender_concept_id, avg_value, stdev_value, min_value, max_value, total
 ) as (
@@ -16,7 +15,7 @@ with overallStats (
     min(count_value) as min_value,
     max(count_value) as max_value,
     count(*) as total
-  from {{ ref( "achilles__rawData_106" ) }}
+  from `@temp_schema`.`achilles__rawData_106`
   group by gender_concept_id
 ),
 statsView (gender_concept_id, count_value, total, rn) as (
@@ -25,7 +24,7 @@ statsView (gender_concept_id, count_value, total, rn) as (
     count_value,
     count(*) as total,
     row_number() over (order by count_value) as rn
-  from {{ ref( "achilles__rawData_106" ) }}
+  from `@temp_schema`.`achilles__rawData_106`
   group by gender_concept_id, count_value
 ),
 priorStats (gender_concept_id, count_value, total, accumulated) as (

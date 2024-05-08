@@ -5,7 +5,6 @@ MODEL (
   cron '@daily'
 );
 
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   0 as analysis_id,
   cast('' as VARCHAR(255)) as stratum_1,
@@ -23,4 +22,4 @@ select
   cast(null as FLOAT) as p75_value,
   cast(null as FLOAT) as p90_value,
   count(distinct person_id) as count_value
-from `@src_omop_schema`.`person`
+from `@src_database`.`@src_schema_omop`.`person`

@@ -6,19 +6,18 @@ MODEL (
 );
 
 -- 513	Distribution of time from death to last visit
---HINT DISTRIBUTE_ON_KEY(count_value)
 WITH rawData (count_value) AS (
   SELECT datediff( vo.max_date,d.death_date) AS count_value
   FROM
-    `@src_omop_schema`.`death` AS d
+    `@src_database`.`@src_schema_omop`.`death` AS d
     JOIN (
     SELECT
       vo.person_id,
       MAX(vo.visit_start_date) AS max_date
     FROM
-      `@src_omop_schema`.`visit_occurrence` AS vo
+      `@src_database`.`@src_schema_omop`.`visit_occurrence` AS vo
     INNER JOIN
-      `@src_omop_schema`.`observation_period` AS op
+      `@src_database`.`@src_schema_omop`.`observation_period` AS op
       ON
         vo.person_id = op.person_id
         AND

@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 107	Length of observation (days) of first observation period by age decile
---HINT DISTRIBUTE_ON_KEY(age_decile)
 with rawData (age_decile, count_value) as (
   select
     floor((year(op.OBSERVATION_PERIOD_START_DATE) - p.YEAR_OF_BIRTH) / 10)
@@ -23,9 +22,9 @@ with rawData (age_decile, count_value) as (
           partition by op.person_id
           order by op.observation_period_start_date asc
         ) as rn
-      from `@src_omop_schema`.`observation_period` as op
+      from `@src_database`.`@src_schema_omop`.`observation_period` as op
     ) as op
-  inner join `@src_omop_schema`.`person` as p on op.person_id = p.person_id
+  inner join `@src_database`.`@src_schema_omop`.`person` as p on op.person_id = p.person_id
   where op.rn = 1
 ),
 overallStats (

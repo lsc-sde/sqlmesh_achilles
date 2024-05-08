@@ -6,15 +6,14 @@ MODEL (
 );
 
 -- 717	Distribution of quantity by drug_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum_id)
 WITH rawData (stratum_id, count_value) AS (
   SELECT
     de.drug_concept_id AS stratum_id,
     CAST(de.quantity AS FLOAT) AS count_value
   FROM
-    `@src_omop_schema`.`drug_exposure` AS de
+    `@src_database`.`@src_schema_omop`.`drug_exposure` AS de
     JOIN
-    `@src_omop_schema`.`observation_period` AS op
+    `@src_database`.`@src_schema_omop`.`observation_period` AS op
     ON
       de.person_id = op.person_id
       AND

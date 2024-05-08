@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 891	Number of total persons that have at least x observations
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   891 as analysis_id,
   CAST(o.observation_concept_id as VARCHAR(255)) as stratum_1,
@@ -23,9 +22,9 @@ from (
     o.person_id,
     COUNT(o.observation_id) as obs_cnt
   from
-    `@src_omop_schema`.`observation` as o
+    `@src_database`.`@src_schema_omop`.`observation` as o
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       o.person_id = op.person_id
       and

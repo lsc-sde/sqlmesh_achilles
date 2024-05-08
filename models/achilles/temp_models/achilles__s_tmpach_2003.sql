@@ -14,9 +14,9 @@ select
   CAST(NULL as VARCHAR(255)) as stratum_5,
   COUNT(distinct vo.person_id) as count_value
 from
-  `@src_omop_schema`.`visit_occurrence` as vo
+  `@src_database`.`@src_schema_omop`.`visit_occurrence` as vo
 inner join
-  `@src_omop_schema`.`observation_period` as op
+  `@src_database`.`@src_schema_omop`.`observation_period` as op
   on
     vo.person_id = op.person_id
     and

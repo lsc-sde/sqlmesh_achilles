@@ -5,4 +5,4 @@ MODEL (
   cron '@daily'
 );
 
-select distinct person_id from `@src_omop_schema`.`drug_exposure`
+select distinct person_id from `@src_database`.`@src_schema_omop`.`drug_exposure`

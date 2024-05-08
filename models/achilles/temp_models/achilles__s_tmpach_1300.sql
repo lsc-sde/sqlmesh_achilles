@@ -7,7 +7,6 @@ MODEL (
 
 -- 1300	Number of persons with at least one visit detail, by visit_detail_concept_id
 -- restricted to visits overlapping with observation period
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   1300 as analysis_id,
   CAST(vd.visit_detail_concept_id as VARCHAR(255)) as stratum_1,
@@ -17,9 +16,9 @@ select
   CAST(NULL as VARCHAR(255)) as stratum_5,
   COUNT(distinct vd.person_id) as count_value
 from
-  `@src_omop_schema`.`visit_detail` as vd
+  `@src_database`.`@src_schema_omop`.`visit_detail` as vd
 inner join
-  `@src_omop_schema`.`observation_period` as op
+  `@src_database`.`@src_schema_omop`.`observation_period` as op
   on
     vd.person_id = op.person_id
     and

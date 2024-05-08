@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 10	Number of all persons by year of birth and by gender
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   10 as analysis_id,
   cast(year_of_birth as VARCHAR(255)) as stratum_1,
@@ -15,5 +14,5 @@ select
   cast(null as VARCHAR(255)) as stratum_4,
   cast(null as VARCHAR(255)) as stratum_5,
   count(distinct person_id) as count_value
-from `@src_omop_schema`.`person`
+from `@src_database`.`@src_schema_omop`.`person`
 group by YEAR_OF_BIRTH, gender_concept_id

@@ -6,16 +6,15 @@ MODEL (
 );
 
 -- 1020	Number of condition era records by condition era start month
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     YEAR(ce.condition_era_start_date) * 100
     + MONTH(ce.condition_era_start_date) as stratum_1,
     COUNT(ce.person_id) as count_value
   from
-    `@src_omop_schema`.`condition_era` as ce
+    `@src_database`.`@src_schema_omop`.`condition_era` as ce
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       ce.person_id = op.person_id
       and

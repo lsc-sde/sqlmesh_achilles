@@ -6,16 +6,15 @@ MODEL (
 );
 
 -- 1320	Number of visit detail records by visit detail start month
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     YEAR(vd.visit_detail_start_date) * 100
     + MONTH(vd.visit_detail_start_date) as stratum_1,
     COUNT(vd.person_id) as count_value
   from
-    `@src_omop_schema`.`visit_detail` as vd
+    `@src_database`.`@src_schema_omop`.`visit_detail` as vd
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       vd.person_id = op.person_id
       and

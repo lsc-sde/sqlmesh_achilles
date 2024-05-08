@@ -6,16 +6,15 @@ MODEL (
 );
 
 -- 1007	Distribution of condition era length, by condition_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData (stratum1_id, count_value) as (
   select
     ce.condition_concept_id as stratum1_id,
     datediff( ce.condition_era_end_date,ce.condition_era_start_date)
     as count_value
   from
-    `@src_omop_schema`.`condition_era` as ce
+    `@src_database`.`@src_schema_omop`.`condition_era` as ce
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       ce.person_id = op.person_id
       and

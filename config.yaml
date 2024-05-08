@@ -11,10 +11,13 @@ gateways:
             type: duckdb
             catalogs:
                 persistent: 'sqlmesh_omop.duckdb'
+        variables:
+            temp_schema: temp
 variables:
   src_schema_omop: lth_omop
   src_schema_vocab: lth_omop
   src_database: dbw-lsc-uks-datadev-dlz-01
+
 default_gateway: databricks
 
 model_defaults:

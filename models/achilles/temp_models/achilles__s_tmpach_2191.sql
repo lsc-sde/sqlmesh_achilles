@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 2191	Number of total persons that have at least x measurements
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   2191 as analysis_id,
   CAST(d.device_concept_id as VARCHAR(255)) as stratum_1,
@@ -23,9 +22,9 @@ from (
     d.person_id,
     COUNT(d.device_exposure_id) as device_count
   from
-    `@src_omop_schema`.`device_exposure` as d
+    `@src_database`.`@src_schema_omop`.`device_exposure` as d
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       d.person_id = op.person_id
       and

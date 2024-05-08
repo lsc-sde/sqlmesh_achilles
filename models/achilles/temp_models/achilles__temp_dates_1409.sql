@@ -9,4 +9,4 @@ MODEL (
 -- Note: using temp table instead of nested query because this gives vastly improved
 select distinct YEAR(payer_plan_period_start_date) as obs_year
 from
-  `@src_omop_schema`.`payer_plan_period`
+  `@src_database`.`@src_schema_omop`.`payer_plan_period`

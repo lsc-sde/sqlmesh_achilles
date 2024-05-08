@@ -6,23 +6,22 @@ MODEL (
 );
 
 -- 206	Distribution of age by visit_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum1_id)
 with rawData (stratum1_id, stratum2_id, count_value) as (
   select
     v.visit_concept_id as stratum1_id,
     p.gender_concept_id as stratum2_id,
     v.visit_start_year - p.year_of_birth as count_value
   from
-    `@src_omop_schema`.`person` as p
+    `@src_database`.`@src_schema_omop`.`person` as p
   inner join (
     select
       vo.person_id,
       vo.visit_concept_id,
       MIN(YEAR(vo.visit_start_date)) as visit_start_year
     from
-      `@src_omop_schema`.`visit_occurrence` as vo
+      `@src_database`.`@src_schema_omop`.`visit_occurrence` as vo
     inner join
-      `@src_omop_schema`.`observation_period` as op
+      `@src_database`.`@src_schema_omop`.`observation_period` as op
       on
         vo.person_id = op.person_id
         and

@@ -6,22 +6,21 @@ MODEL (
 );
 
 -- 606	Distribution of age by procedure_concept_id
---HINT DISTRIBUTE_ON_KEY(subject_id)
 select
   po.procedure_concept_id as subject_id,
   p.gender_concept_id,
   po.procedure_start_year - p.year_of_birth as count_value
 from
-  `@src_omop_schema`.`person` as p
+  `@src_database`.`@src_schema_omop`.`person` as p
 inner join (
   select
     po.person_id,
     po.procedure_concept_id,
     MIN(YEAR(po.procedure_date)) as procedure_start_year
   from
-    `@src_omop_schema`.`procedure_occurrence` as po
+    `@src_database`.`@src_schema_omop`.`procedure_occurrence` as po
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       po.person_id = op.person_id
       and

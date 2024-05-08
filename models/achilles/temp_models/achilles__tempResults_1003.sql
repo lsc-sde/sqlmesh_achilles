@@ -6,13 +6,12 @@ MODEL (
 );
 
 -- 1003	Number of distinct condition era concepts per person
---HINT DISTRIBUTE_ON_KEY(count_value)
 WITH rawData (count_value) AS (
   SELECT count(DISTINCT ce.condition_concept_id) AS count_value
   FROM
-    `@src_omop_schema`.`condition_era` AS ce
+    `@src_database`.`@src_schema_omop`.`condition_era` AS ce
     JOIN
-    `@src_omop_schema`.`observation_period` AS op
+    `@src_database`.`@src_schema_omop`.`observation_period` AS op
     ON
       ce.person_id = op.person_id
       AND

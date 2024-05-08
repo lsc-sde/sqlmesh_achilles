@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 1891	Number of total persons that have at least x measurements
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   1891 as analysis_id,
   CAST(m.measurement_concept_id as VARCHAR(255)) as stratum_1,
@@ -23,9 +22,9 @@ from (
     m.person_id,
     COUNT(m.measurement_id) as meas_cnt
   from
-    `@src_omop_schema`.`measurement` as m
+    `@src_database`.`@src_schema_omop`.`measurement` as m
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       m.person_id = op.person_id
       and

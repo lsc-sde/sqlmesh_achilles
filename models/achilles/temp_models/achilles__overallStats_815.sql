@@ -5,7 +5,6 @@ MODEL (
   cron '@daily'
 );
 
---HINT DISTRIBUTE_ON_KEY(stratum1_id)
 select
   o.subject_id as stratum1_id,
   o.unit_concept_id as stratum2_id,
@@ -20,9 +19,9 @@ from (
     o.unit_concept_id,
     CAST(o.value_as_number as FLOAT) as count_value
   from
-    `@src_omop_schema`.`observation` as o
+    `@src_database`.`@src_schema_omop`.`observation` as o
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       o.person_id = op.person_id
       and

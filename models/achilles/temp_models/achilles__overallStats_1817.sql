@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 1817	Distribution of high range, by observation_concept_id and unit_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum1_id)
 select
   m.subject_id as stratum1_id,
   m.unit_concept_id as stratum2_id,
@@ -21,9 +20,9 @@ from (
     unit_concept_id,
     CAST(range_high as FLOAT) as count_value
   from
-    `@src_omop_schema`.`measurement` as m
+    `@src_database`.`@src_schema_omop`.`measurement` as m
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       m.person_id = op.person_id
       and

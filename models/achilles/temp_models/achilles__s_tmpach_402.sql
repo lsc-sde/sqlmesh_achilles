@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 402	Number of persons by condition occurrence start month, by condition_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     co.condition_concept_id as stratum_1,
@@ -14,9 +13,9 @@ with rawData as (
     + MONTH(co.condition_start_date) as stratum_2,
     COUNT(distinct co.person_id) as count_value
   from
-    `@src_omop_schema`.`condition_occurrence` as co
+    `@src_database`.`@src_schema_omop`.`condition_occurrence` as co
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       co.person_id = op.person_id
       and

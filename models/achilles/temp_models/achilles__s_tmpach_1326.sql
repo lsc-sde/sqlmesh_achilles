@@ -20,9 +20,9 @@ from (
     COALESCE(vd.visit_detail_concept_id, 0) as visit_detail_concept_id,
     COUNT(*) as record_count
   from
-    `@src_omop_schema`.`drug_exposure` as de
+    `@src_database`.`@src_schema_omop`.`drug_exposure` as de
   left join
-    `@src_omop_schema`.`visit_detail` as vd
+    `@src_database`.`@src_schema_omop`.`visit_detail` as vd
     on
       de.visit_occurrence_id = vd.visit_occurrence_id
   group by
@@ -33,9 +33,9 @@ from (
     COALESCE(vd.visit_detail_concept_id, 0) as visit_detail_concept_id,
     COUNT(*) as record_count
   from
-    `@src_omop_schema`.`condition_occurrence` as co
+    `@src_database`.`@src_schema_omop`.`condition_occurrence` as co
   left join
-    `@src_omop_schema`.`visit_detail` as vd
+    `@src_database`.`@src_schema_omop`.`visit_detail` as vd
     on
       co.visit_occurrence_id = vd.visit_occurrence_id
   group by
@@ -46,9 +46,9 @@ from (
     COALESCE(visit_detail_concept_id, 0) as visit_detail_concept_id,
     COUNT(*) as record_count
   from
-    `@src_omop_schema`.`device_exposure` as de
+    `@src_database`.`@src_schema_omop`.`device_exposure` as de
   left join
-    `@src_omop_schema`.`visit_detail` as vd
+    `@src_database`.`@src_schema_omop`.`visit_detail` as vd
     on
       de.visit_occurrence_id = vd.visit_occurrence_id
   group by
@@ -59,9 +59,9 @@ from (
     COALESCE(vd.visit_detail_concept_id, 0) as visit_detail_concept_id,
     COUNT(*) as record_count
   from
-    `@src_omop_schema`.`procedure_occurrence` as po
+    `@src_database`.`@src_schema_omop`.`procedure_occurrence` as po
   left join
-    `@src_omop_schema`.`visit_detail` as vd
+    `@src_database`.`@src_schema_omop`.`visit_detail` as vd
     on
       po.visit_occurrence_id = vd.visit_occurrence_id
   group by
@@ -72,9 +72,9 @@ from (
     COALESCE(vd.visit_detail_concept_id, 0) as visit_detail_concept_id,
     COUNT(*) as record_count
   from
-    `@src_omop_schema`.`measurement` as m
+    `@src_database`.`@src_schema_omop`.`measurement` as m
   left join
-    `@src_omop_schema`.`visit_detail` as vd
+    `@src_database`.`@src_schema_omop`.`visit_detail` as vd
     on
       m.visit_occurrence_id = vd.visit_occurrence_id
   group by
@@ -85,9 +85,9 @@ from (
     COALESCE(vd.visit_detail_concept_id, 0) as visit_detail_concept_id,
     COUNT(*) as record_count
   from
-    `@src_omop_schema`.`observation` as o
+    `@src_database`.`@src_schema_omop`.`observation` as o
   left join
-    `@src_omop_schema`.`visit_detail` as vd
+    `@src_database`.`@src_schema_omop`.`visit_detail` as vd
     on
       o.visit_occurrence_id = vd.visit_occurrence_id
   group by

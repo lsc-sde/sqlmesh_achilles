@@ -6,15 +6,14 @@ MODEL (
 );
 
 -- 1303	Number of distinct visit detail concepts per person
---HINT DISTRIBUTE_ON_KEY(count_value)
 with rawData (person_id, count_value) as (
   select
     vd.person_id,
     count(distinct vd.visit_detail_concept_id) as count_value
   from
-    `@src_omop_schema`.`visit_detail` as vd
+    `@src_database`.`@src_schema_omop`.`visit_detail` as vd
     join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       vd.person_id = op.person_id
       and

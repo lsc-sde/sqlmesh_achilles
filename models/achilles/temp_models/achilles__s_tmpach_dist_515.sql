@@ -5,7 +5,6 @@ MODEL (
   cron '@daily'
 );
 
---HINT DISTRIBUTE_ON_KEY(count_value)
 select
   analysis_id,
   cast(null as varchar(255)) as stratum_1,
@@ -23,4 +22,4 @@ select
   p25_value,
   p75_value,
   p90_value
-from {{ ref( "achilles__tempResults_515" ) }}
+from `@temp_schema`.`achilles__tempResults_515`

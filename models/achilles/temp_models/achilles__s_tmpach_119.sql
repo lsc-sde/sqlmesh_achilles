@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 119  Number of observation period records by period_type_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   119 as analysis_id,
   cast(op1.period_type_concept_id as VARCHAR(255)) as stratum_1,
@@ -16,5 +15,5 @@ select
   cast(null as VARCHAR(255)) as stratum_5,
   count(*) as count_value
 from
-  `@src_omop_schema`.`observation_period` as op1
+  `@src_database`.`@src_schema_omop`.`observation_period` as op1
 group by op1.period_type_concept_id

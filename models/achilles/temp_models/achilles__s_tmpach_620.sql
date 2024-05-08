@@ -6,15 +6,14 @@ MODEL (
 );
 
 -- 620	Number of procedure occurrence records by condition occurrence start month
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     YEAR(po.procedure_date) * 100 + MONTH(po.procedure_date) as stratum_1,
     COUNT(po.person_id) as count_value
   from
-    `@src_omop_schema`.`procedure_occurrence` as po
+    `@src_database`.`@src_schema_omop`.`procedure_occurrence` as po
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       po.person_id = op.person_id
       and

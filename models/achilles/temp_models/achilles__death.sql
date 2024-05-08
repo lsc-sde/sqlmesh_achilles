@@ -5,4 +5,4 @@ MODEL (
   cron '@daily'
 );
 
-select distinct person_id from `@src_omop_schema`.`death`
+select distinct person_id from `@src_database`.`@src_schema_omop`.`death`

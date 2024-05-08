@@ -6,16 +6,15 @@ MODEL (
 );
 
 -- 920	Number of drug era records by drug era start month
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     YEAR(de.drug_era_start_date) * 100
     + MONTH(de.drug_era_start_date) as stratum_1,
     COUNT(de.person_id) as count_value
   from
-    `@src_omop_schema`.`drug_era` as de
+    `@src_database`.`@src_schema_omop`.`drug_era` as de
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       de.person_id = op.person_id
       and

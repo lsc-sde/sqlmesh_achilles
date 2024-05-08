@@ -15,5 +15,5 @@ select
   cast(null as varchar(255)) as stratum_5,
   count(m.PERSON_ID) as count_value
 from
-  `@src_omop_schema`.`measurement` as m
+  `@src_database`.`@src_schema_omop`.`measurement` as m
 where m.value_as_number is null

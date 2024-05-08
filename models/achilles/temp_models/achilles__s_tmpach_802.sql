@@ -6,16 +6,15 @@ MODEL (
 );
 
 -- 802	Number of persons by observation occurrence start month, by observation_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     o.observation_concept_id as stratum_1,
     YEAR(o.observation_date) * 100 + MONTH(o.observation_date) as stratum_2,
     COUNT(distinct o.person_id) as count_value
   from
-    `@src_omop_schema`.`observation` as o
+    `@src_database`.`@src_schema_omop`.`observation` as o
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       o.person_id = op.person_id
       and

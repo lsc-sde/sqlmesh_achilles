@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 2101	Number of device exposure  records, by device_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   2101 as analysis_id,
   CAST(de.device_concept_id as VARCHAR(255)) as stratum_1,
@@ -16,9 +15,9 @@ select
   CAST(NULL as VARCHAR(255)) as stratum_5,
   COUNT(de.person_id) as count_value
 from
-  `@src_omop_schema`.`device_exposure` as de
+  `@src_database`.`@src_schema_omop`.`device_exposure` as de
 inner join
-  `@src_omop_schema`.`observation_period` as op
+  `@src_database`.`@src_schema_omop`.`observation_period` as op
   on
     de.person_id = op.person_id
     and

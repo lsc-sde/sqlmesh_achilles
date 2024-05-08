@@ -9,8 +9,8 @@ with rawData (person_id, age_value) as
 (
 select p.person_id,
   MIN(YEAR(observation_period_start_date)) - P.YEAR_OF_BIRTH as age_value
-  from `@src_omop_schema`.`person` p
-  JOIN `@src_omop_schema`.`observation_period` op on p.person_id = op.person_id
+  from `@src_database`.`@src_schema_omop`.`person` p
+  JOIN `@src_database`.`@src_schema_omop`.`observation_period` op on p.person_id = op.person_id
   group by p.person_id, p.year_of_birth
 ),
 overallStats (avg_value, stdev_value, min_value, max_value, total) as

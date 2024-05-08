@@ -15,8 +15,8 @@ select
   cast(null as varchar(255)) as stratum_5,
   count(vo1.PERSON_ID) as count_value
 from
-  `@src_omop_schema`.`visit_occurrence` as vo1
-left join `@src_omop_schema`.`care_site` as cs1
+  `@src_database`.`@src_schema_omop`.`visit_occurrence` as vo1
+left join `@src_database`.`@src_schema_omop`.`care_site` as cs1
   on vo1.care_site_id = cs1.care_site_id
 where
   vo1.care_site_id is not null

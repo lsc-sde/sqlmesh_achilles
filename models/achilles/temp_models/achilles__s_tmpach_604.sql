@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 604	Number of persons with at least one procedure occurrence, by procedure_concept_id by calendar year by gender by age decile
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     po.procedure_concept_id as stratum_1,
@@ -15,13 +14,13 @@ with rawData as (
     FLOOR((YEAR(po.procedure_date) - p.year_of_birth) / 10) as stratum_4,
     COUNT(distinct p.person_id) as count_value
   from
-    `@src_omop_schema`.`person` as p
+    `@src_database`.`@src_schema_omop`.`person` as p
   inner join
-    `@src_omop_schema`.`procedure_occurrence` as po
+    `@src_database`.`@src_schema_omop`.`procedure_occurrence` as po
     on
       p.person_id = po.person_id
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       po.person_id = op.person_id
       and

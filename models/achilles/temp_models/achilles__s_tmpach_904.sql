@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 904	Number of persons with at least one drug occurrence, by drug_concept_id by calendar year by gender by age decile
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     de.drug_concept_id as stratum_1,
@@ -15,13 +14,13 @@ with rawData as (
     FLOOR((YEAR(de.drug_era_start_date) - p.year_of_birth) / 10) as stratum_4,
     COUNT(distinct p.person_id) as count_value
   from
-    `@src_omop_schema`.`person` as p
+    `@src_database`.`@src_schema_omop`.`person` as p
   inner join
-    `@src_omop_schema`.`drug_era` as de
+    `@src_database`.`@src_schema_omop`.`drug_era` as de
     on
       p.person_id = de.person_id
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       de.person_id = op.person_id
       and

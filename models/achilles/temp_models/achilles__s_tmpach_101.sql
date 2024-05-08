@@ -6,17 +6,16 @@ MODEL (
 );
 
 -- 101	Number of persons by age, with age at first observation period
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     year(op1.index_date) - p1.YEAR_OF_BIRTH as stratum_1,
     count(p1.person_id) as count_value
-  from `@src_omop_schema`.`person` as p1
+  from `@src_database`.`@src_schema_omop`.`person` as p1
   inner join
     (select
       person_id,
       min(observation_period_start_date) as index_date
-    from `@src_omop_schema`.`observation_period` group by PERSON_ID) as op1
+    from `@src_database`.`@src_schema_omop`.`observation_period` group by PERSON_ID) as op1
     on p1.PERSON_ID = op1.PERSON_ID
   group by year(op1.index_date) - p1.YEAR_OF_BIRTH
 )

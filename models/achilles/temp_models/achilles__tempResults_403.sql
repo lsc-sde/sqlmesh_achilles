@@ -6,15 +6,14 @@ MODEL (
 );
 
 -- 403	Number of distinct condition occurrence concepts per person
---HINT DISTRIBUTE_ON_KEY(count_value)
 with rawData (person_id, count_value) as (
   select
     co.person_id,
     count(distinct co.condition_concept_id) as count_value
   from
-    `@src_omop_schema`.`condition_occurrence` as co
+    `@src_database`.`@src_schema_omop`.`condition_occurrence` as co
     join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       co.person_id = op.person_id
       and

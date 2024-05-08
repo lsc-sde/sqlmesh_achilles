@@ -6,15 +6,14 @@ MODEL (
 );
 
 -- 502	Number of persons by death month
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     YEAR(d.death_date) * 100 + MONTH(d.death_date) as stratum_1,
     COUNT(distinct d.person_id) as count_value
   from
-    `@src_omop_schema`.`death` as d
+    `@src_database`.`@src_schema_omop`.`death` as d
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       d.person_id = op.person_id
       and

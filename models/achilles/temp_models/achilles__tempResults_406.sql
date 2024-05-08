@@ -5,7 +5,6 @@ MODEL (
   cron '@daily'
 );
 
---HINT DISTRIBUTE_ON_KEY(stratum1_id)
 with overallStats (
   stratum1_id, stratum2_id, avg_value, stdev_value, min_value, max_value, total
 ) as (
@@ -17,7 +16,7 @@ with overallStats (
     min(count_value) as min_value,
     max(count_value) as max_value,
     count(*) as total
-  from {{ ref( "achilles__rawData_406" ) }}
+  from `@temp_schema`.`achilles__rawData_406`
   group by subject_id, gender_concept_id
 ),
 
@@ -30,7 +29,7 @@ statsView (stratum1_id, stratum2_id, count_value, total, rn) as (
     row_number() over (
       partition by subject_id, gender_concept_id order by count_value
     ) as rn
-  from {{ ref( "achilles__rawData_406" ) }}
+  from `@temp_schema`.`achilles__rawData_406`
   group by subject_id, gender_concept_id, count_value
 ),
 

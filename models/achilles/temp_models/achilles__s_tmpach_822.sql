@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 822	Number of observation records, by observation_concept_id and value_as_concept_id, observation_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   822 as analysis_id,
   CAST(o.observation_concept_id as VARCHAR(255)) as stratum_1,
@@ -16,9 +15,9 @@ select
   CAST(NULL as VARCHAR(255)) as stratum_5,
   COUNT(*) as count_value
 from
-  `@src_omop_schema`.`observation` as o
+  `@src_database`.`@src_schema_omop`.`observation` as o
 inner join
-  `@src_omop_schema`.`observation_period` as op
+  `@src_database`.`@src_schema_omop`.`observation_period` as op
   on
     o.person_id = op.person_id
     and

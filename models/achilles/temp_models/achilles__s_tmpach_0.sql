@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 0	cdm name, version of Achilles and date when pre-computations were executed
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   0 as analysis_id,
   cast('' as VARCHAR(255)) as stratum_1,
@@ -15,4 +14,4 @@ select
   cast(null as VARCHAR(255)) as stratum_4,
   cast(null as VARCHAR(255)) as stratum_5,
   count(distinct person_id) as count_value
-from `@src_omop_schema`.`person`
+from `@src_database`.`@src_schema_omop`.`person`

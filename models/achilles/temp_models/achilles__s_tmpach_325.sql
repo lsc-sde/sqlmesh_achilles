@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 325	Number of provider records, by specialty_source_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   325 as analysis_id,
   cast(specialty_source_concept_id as varchar(255)) as stratum_1,
@@ -15,5 +14,5 @@ select
   cast(null as varchar(255)) as stratum_4,
   cast(null as varchar(255)) as stratum_5,
   count(*) as count_value
-from `@src_omop_schema`.`provider`
+from `@src_database`.`@src_schema_omop`.`provider`
 group by specialty_source_concept_id

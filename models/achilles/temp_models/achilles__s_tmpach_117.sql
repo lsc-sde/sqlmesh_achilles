@@ -6,9 +6,8 @@ MODEL (
 );
 
 -- 117	Number of persons with at least one day of observation in each month
---HINT DISTRIBUTE_ON_KEY(stratum_1)
--- generating date key sequences in a databricks SQL compatible fashion
--- this is very different from the dialect agnostic method used in the original implementation
+
+
 with months_array as (
   select explode(sequence(DATE'1900-01-01', DATE'2099-12-01', INTERVAL 1 MONTH)) as months
 ),
@@ -30,7 +29,7 @@ left join
     select
       t2.obs_month,
       op2.*
-    from `@src_omop_schema`.`observation_period` as op2, date_keys as t2
+    from `@src_database`.`@src_schema_omop`.`observation_period` as op2, date_keys as t2
     where
       year(op2.observation_period_start_date) * 100
       + month(op2.observation_period_start_date)

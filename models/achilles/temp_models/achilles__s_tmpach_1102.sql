@@ -6,13 +6,12 @@ MODEL (
 );
 
 -- 1102	Number of care sites by location 3-digit zip
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     LEFT(l1.zip, 3) as stratum_1,
     COUNT(distinct care_site_id) as count_value
-  from `@src_omop_schema`.`care_site` as cs1
-  inner join `@src_omop_schema`.`location` as l1
+  from `@src_database`.`@src_schema_omop`.`care_site` as cs1
+  inner join `@src_database`.`@src_schema_omop`.`location` as l1
     on cs1.location_id = l1.location_id
   where
     cs1.location_id is not NULL

@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 702	Number of persons by drug occurrence start month, by drug_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     de.drug_concept_id as stratum_1,
@@ -14,9 +13,9 @@ with rawData as (
     + MONTH(de.drug_exposure_start_date) as stratum_2,
     COUNT(distinct de.person_id) as count_value
   from
-    `@src_omop_schema`.`drug_exposure` as de
+    `@src_database`.`@src_schema_omop`.`drug_exposure` as de
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       de.person_id = op.person_id
       and

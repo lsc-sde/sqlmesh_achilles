@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 791	Number of total persons that have at least x drug exposures
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   791 as analysis_id,
   CAST(de.drug_concept_id as VARCHAR(255)) as stratum_1,
@@ -23,9 +22,9 @@ from (
     de.person_id,
     COUNT(de.drug_exposure_id) as drg_cnt
   from
-    `@src_omop_schema`.`drug_exposure` as de
+    `@src_database`.`@src_schema_omop`.`drug_exposure` as de
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       de.person_id = op.person_id
       and

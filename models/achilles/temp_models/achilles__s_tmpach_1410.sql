@@ -5,7 +5,6 @@ MODEL (
   cron '@daily'
 );
 
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   1410 as analysis_id,
   cast(obs_month as VARCHAR(255)) as stratum_1,
@@ -15,9 +14,9 @@ select
   cast(null as VARCHAR(255)) as stratum_5,
   count(distinct p1.PERSON_ID) as count_value
 from
-  `@src_omop_schema`.`person` as p1
+  `@src_database`.`@src_schema_omop`.`person` as p1
 inner join
-  `@src_omop_schema`.`payer_plan_period` as ppp1
+  `@src_database`.`@src_schema_omop`.`payer_plan_period` as ppp1
   on p1.person_id = ppp1.person_id
 ,
   `@temp_schema`.`achilles__temp_dates_1410`

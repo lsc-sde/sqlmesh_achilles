@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 1101	Number of persons by location state
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   1101 as analysis_id,
   cast(l1.state as VARCHAR(255)) as stratum_1,
@@ -15,8 +14,8 @@ select
   cast(null as VARCHAR(255)) as stratum_4,
   cast(null as VARCHAR(255)) as stratum_5,
   count(distinct person_id) as count_value
-from `@src_omop_schema`.`person` as p1
-inner join `@src_omop_schema`.`location` as l1
+from `@src_database`.`@src_schema_omop`.`person` as p1
+inner join `@src_database`.`@src_schema_omop`.`location` as l1
   on p1.location_id = l1.location_id
 where
   p1.location_id is not null

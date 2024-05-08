@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 1818	Number of observation records below/within/above normal range, by observation_concept_id and unit_concept_id
---HINT DISTRIBUTE_ON_KEY(person_id)
 select
   m.person_id,
   m.measurement_concept_id,
@@ -21,9 +20,9 @@ select
     else 'Other'
   end as VARCHAR(255)) as stratum_3
 from
-  `@src_omop_schema`.`measurement` as m
+  `@src_database`.`@src_schema_omop`.`measurement` as m
 inner join
-  `@src_omop_schema`.`observation_period` as op
+  `@src_database`.`@src_schema_omop`.`observation_period` as op
   on
     m.person_id = op.person_id
     and

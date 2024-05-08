@@ -6,15 +6,14 @@ MODEL (
 );
 
 -- 907	Distribution of drug era length, by drug_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData (stratum1_id, count_value) as (
   select
     de.drug_concept_id as stratum1_id,
     datediff( de.drug_era_end_date,de.drug_era_start_date) as count_value
   from
-    `@src_omop_schema`.`drug_era` as de
+    `@src_database`.`@src_schema_omop`.`drug_era` as de
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       de.person_id = op.person_id
       and

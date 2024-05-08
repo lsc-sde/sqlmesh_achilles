@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 404	Number of persons with at least one condition occurrence, by condition_concept_id by calendar year by gender by age decile
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     co.condition_concept_id as stratum_1,
@@ -15,13 +14,13 @@ with rawData as (
     FLOOR((YEAR(co.condition_start_date) - p.year_of_birth) / 10) as stratum_4,
     COUNT(distinct p.person_id) as count_value
   from
-    `@src_omop_schema`.`person` as p
+    `@src_database`.`@src_schema_omop`.`person` as p
   inner join
-    `@src_omop_schema`.`condition_occurrence` as co
+    `@src_database`.`@src_schema_omop`.`condition_occurrence` as co
     on
       p.person_id = co.person_id
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       co.person_id = op.person_id
       and

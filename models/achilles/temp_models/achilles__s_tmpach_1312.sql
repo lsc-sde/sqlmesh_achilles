@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 1312	Number of persons with at least one visit detail by calendar year by gender by age decile
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     p.gender_concept_id as stratum_2,
@@ -15,13 +14,13 @@ with rawData as (
     as stratum_3,
     COUNT(distinct vd.person_id) as count_value
   from
-    `@src_omop_schema`.`person` as p
+    `@src_database`.`@src_schema_omop`.`person` as p
   inner join
-    `@src_omop_schema`.`visit_detail` as vd
+    `@src_database`.`@src_schema_omop`.`visit_detail` as vd
     on
       p.person_id = vd.person_id
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       vd.person_id = op.person_id
       and

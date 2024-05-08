@@ -6,15 +6,14 @@ MODEL (
 );
 
 -- 1820	Number of measurement records  by measurement start month
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     YEAR(m.measurement_date) * 100 + MONTH(m.measurement_date) as stratum_1,
     COUNT(m.person_id) as count_value
   from
-    `@src_omop_schema`.`measurement` as m
+    `@src_database`.`@src_schema_omop`.`measurement` as m
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       m.person_id = op.person_id
       and

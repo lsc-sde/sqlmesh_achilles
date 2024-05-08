@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 105	Length of observation (days) of first observation period
---HINT DISTRIBUTE_ON_KEY(count_value)
 select
   count_value,
   rn
@@ -18,6 +17,6 @@ from
       ROW_NUMBER() over (
         partition by op.person_id order by op.observation_period_start_date asc
       ) as rn
-    from `@src_omop_schema`.`observation_period` as op
+    from `@src_database`.`@src_schema_omop`.`observation_period` as op
   ) as A
 where rn = 1

@@ -6,14 +6,13 @@ MODEL (
 );
 
 -- 112	Number of persons by observation period end month
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 with rawData as (
   select
     YEAR(op1.observation_period_end_date) * 100
     + MONTH(op1.observation_period_end_date) as stratum_1,
     COUNT(distinct op1.PERSON_ID) as count_value
   from
-    `@src_omop_schema`.`observation_period` as op1
+    `@src_database`.`@src_schema_omop`.`observation_period` as op1
   group by
     YEAR(op1.observation_period_end_date) * 100
     + MONTH(op1.observation_period_end_date)

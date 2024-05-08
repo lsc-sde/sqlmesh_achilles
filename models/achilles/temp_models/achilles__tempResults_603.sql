@@ -6,13 +6,12 @@ MODEL (
 );
 
 -- 603	Number of distinct procedure occurrence concepts per person
---HINT DISTRIBUTE_ON_KEY(count_value)
 WITH rawData (count_value) AS (
   SELECT count(DISTINCT po.procedure_concept_id) AS count_value
   FROM
-    `@src_omop_schema`.`procedure_occurrence` AS po
+    `@src_database`.`@src_schema_omop`.`procedure_occurrence` AS po
     JOIN
-    `@src_omop_schema`.`observation_period` AS op
+    `@src_database`.`@src_schema_omop`.`observation_period` AS op
     ON
       po.person_id = op.person_id
       AND

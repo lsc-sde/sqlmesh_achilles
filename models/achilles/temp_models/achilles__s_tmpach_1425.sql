@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 1425	Number of payer_plan_period records, by payer_source_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   1425 as analysis_id,
   cast(payer_source_concept_id as varchar(255)) as stratum_1,
@@ -15,5 +14,5 @@ select
   cast(null as varchar(255)) as stratum_4,
   cast(null as varchar(255)) as stratum_5,
   count(*) as count_value
-from `@src_omop_schema`.`payer_plan_period`
+from `@src_database`.`@src_schema_omop`.`payer_plan_period`
 group by payer_source_concept_id

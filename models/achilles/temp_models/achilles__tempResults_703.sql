@@ -6,13 +6,12 @@ MODEL (
 );
 
 -- 703	Number of distinct drug exposure concepts per person
---HINT DISTRIBUTE_ON_KEY(count_value)
 WITH rawData (count_value) AS (
   SELECT count(DISTINCT de.drug_concept_id) AS count_value
   FROM
-    `@src_omop_schema`.`drug_exposure` AS de
+    `@src_database`.`@src_schema_omop`.`drug_exposure` AS de
     JOIN
-    `@src_omop_schema`.`observation_period` AS op
+    `@src_database`.`@src_schema_omop`.`observation_period` AS op
     ON
       de.person_id = op.person_id
       AND

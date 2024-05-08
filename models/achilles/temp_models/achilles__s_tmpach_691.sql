@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 691	Number of persons that have at least x procedures
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   691 as analysis_id,
   CAST(po.procedure_concept_id as VARCHAR(255)) as stratum_1,
@@ -23,9 +22,9 @@ from (
     po.person_id,
     COUNT(po.procedure_occurrence_id) as prc_cnt
   from
-    `@src_omop_schema`.`procedure_occurrence` as po
+    `@src_database`.`@src_schema_omop`.`procedure_occurrence` as po
   inner join
-    `@src_omop_schema`.`observation_period` as op
+    `@src_database`.`@src_schema_omop`.`observation_period` as op
     on
       po.person_id = op.person_id
       and

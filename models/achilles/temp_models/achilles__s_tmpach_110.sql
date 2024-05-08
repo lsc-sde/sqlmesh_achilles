@@ -7,7 +7,6 @@ MODEL (
 
 -- 110	Number of persons with continuous observation in each month
 -- Note: using temp table instead of nested query because this gives vastly improved performance in Oracle
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   110 as analysis_id,
   CAST(t1.obs_month as VARCHAR(255)) as stratum_1,
@@ -17,7 +16,7 @@ select
   CAST(null as VARCHAR(255)) as stratum_5,
   COUNT(distinct op1.PERSON_ID) as count_value
 from
-  `@src_omop_schema`.`observation_period` as op1
+  `@src_database`.`@src_schema_omop`.`observation_period` as op1
 inner join
   (
     select distinct
@@ -30,7 +29,7 @@ inner join
       )
       as obs_month_start,
       LAST_DAY(observation_period_start_date) as obs_month_end
-    from `@src_omop_schema`.`observation_period`
+    from `@src_database`.`@src_schema_omop`.`observation_period`
   ) as t1
   on
     op1.observation_period_start_date <= t1.obs_month_start

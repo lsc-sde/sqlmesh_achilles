@@ -6,7 +6,6 @@ MODEL (
 );
 
 -- 605	Number of procedure occurrence records, by procedure_concept_id by procedure_type_concept_id
---HINT DISTRIBUTE_ON_KEY(stratum_1)
 select
   605 as analysis_id,
   CAST(po.procedure_CONCEPT_ID as VARCHAR(255)) as stratum_1,
@@ -16,9 +15,9 @@ select
   CAST(NULL as VARCHAR(255)) as stratum_5,
   COUNT(po.person_id) as count_value
 from
-  `@src_omop_schema`.`procedure_occurrence` as po
+  `@src_database`.`@src_schema_omop`.`procedure_occurrence` as po
 inner join
-  `@src_omop_schema`.`observation_period` as op
+  `@src_database`.`@src_schema_omop`.`observation_period` as op
   on
     po.person_id = op.person_id
     and

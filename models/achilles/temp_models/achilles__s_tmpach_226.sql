@@ -19,9 +19,9 @@ from (
     'drug_exposure' as cdm_table,
     coalesce(visit_concept_id, 0) as visit_concept_id,
     count(*) as record_count
-  from `@src_omop_schema`.`drug_exposure` as t
+  from `@src_database`.`@src_schema_omop`.`drug_exposure` as t
   left join
-    `@src_omop_schema`.`visit_occurrence` as v
+    `@src_database`.`@src_schema_omop`.`visit_occurrence` as v
     on t.visit_occurrence_id = v.visit_occurrence_id
   group by visit_concept_id
   union
@@ -29,9 +29,9 @@ from (
     'condition_occurrence' as cdm_table,
     coalesce(visit_concept_id, 0) as visit_concept_id,
     count(*) as record_count
-  from `@src_omop_schema`.`condition_occurrence` as t
+  from `@src_database`.`@src_schema_omop`.`condition_occurrence` as t
   left join
-    `@src_omop_schema`.`visit_occurrence` as v
+    `@src_database`.`@src_schema_omop`.`visit_occurrence` as v
     on t.visit_occurrence_id = v.visit_occurrence_id
   group by visit_concept_id
   union
@@ -39,9 +39,9 @@ from (
     'device_exposure' as cdm_table,
     coalesce(visit_concept_id, 0) as visit_concept_id,
     count(*) as record_count
-  from `@src_omop_schema`.`device_exposure` as t
+  from `@src_database`.`@src_schema_omop`.`device_exposure` as t
   left join
-    `@src_omop_schema`.`visit_occurrence` as v
+    `@src_database`.`@src_schema_omop`.`visit_occurrence` as v
     on t.visit_occurrence_id = v.visit_occurrence_id
   group by visit_concept_id
   union
@@ -49,9 +49,9 @@ from (
     'procedure_occurrence' as cdm_table,
     coalesce(visit_concept_id, 0) as visit_concept_id,
     count(*) as record_count
-  from `@src_omop_schema`.`procedure_occurrence` as t
+  from `@src_database`.`@src_schema_omop`.`procedure_occurrence` as t
   left join
-    `@src_omop_schema`.`visit_occurrence` as v
+    `@src_database`.`@src_schema_omop`.`visit_occurrence` as v
     on t.visit_occurrence_id = v.visit_occurrence_id
   group by visit_concept_id
   union
@@ -59,9 +59,9 @@ from (
     'measurement' as cdm_table,
     coalesce(visit_concept_id, 0) as visit_concept_id,
     count(*) as record_count
-  from `@src_omop_schema`.`measurement` as t
+  from `@src_database`.`@src_schema_omop`.`measurement` as t
   left join
-    `@src_omop_schema`.`visit_occurrence` as v
+    `@src_database`.`@src_schema_omop`.`visit_occurrence` as v
     on t.visit_occurrence_id = v.visit_occurrence_id
   group by visit_concept_id
   union
@@ -69,9 +69,9 @@ from (
     'observation' as cdm_table,
     coalesce(visit_concept_id, 0) as visit_concept_id,
     count(*) as record_count
-  from `@src_omop_schema`.`observation` as t
+  from `@src_database`.`@src_schema_omop`.`observation` as t
   left join
-    `@src_omop_schema`.`visit_occurrence` as v
+    `@src_database`.`@src_schema_omop`.`visit_occurrence` as v
     on t.visit_occurrence_id = v.visit_occurrence_id
   group by visit_concept_id
 ) as v
