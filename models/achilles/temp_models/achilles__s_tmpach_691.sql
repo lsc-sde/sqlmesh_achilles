@@ -15,7 +15,7 @@ select
   CAST(NULL as VARCHAR(255)) as stratum_5,
   SUM(COUNT(po.person_id))
     over (partition by po.procedure_concept_id order by po.prc_cnt desc)
-  as count_value
+ ::FLOAT as count_value
 from (
   select
     po.procedure_concept_id,

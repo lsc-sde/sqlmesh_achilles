@@ -14,7 +14,7 @@ select
   CAST(NULL as VARCHAR(255)) as stratum_3,
   CAST(NULL as VARCHAR(255)) as stratum_4,
   CAST(NULL as VARCHAR(255)) as stratum_5,
-  COUNT(vd.person_id) as count_value
+  COUNT(vd.person_id)::FLOAT as count_value
 from
   `@src_database`.`@src_schema_omop`.`visit_detail` as vd
 inner join

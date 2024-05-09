@@ -9,7 +9,7 @@ MODEL (
 with rawData (gender_concept_id, age_value) as (
   select
     p.gender_concept_id,
-    MIN(YEAR(observation_period_start_date)) - P.YEAR_OF_BIRTH as age_value
+    MIN(YEAR(observation_period_start_date)) - P.YEAR_OF_BIRTH::FLOAT as age_value
   from `@src_database`.`@src_schema_omop`.`person` as p
   inner join
     `@src_database`.`@src_schema_omop`.`observation_period` as op
@@ -21,10 +21,10 @@ overallStats (
 ) as (
   select
     gender_concept_id,
-    cast(AVG(1.0 * age_value) as FLOAT) as avg_value,
-    cast(stddev(age_value) as FLOAT) as stdev_value,
-    MIN(age_value) as min_value,
-    MAX(age_value) as max_value,
+    AVG(1.0 * age_value)::FLOAT as avg_value,
+    stddev(age_value)::FLOAT as stdev_value,
+    MIN(age_value)::FLOAT as min_value,
+    MAX(age_value)::FLOAT as max_value,
     count(*) as total
   from rawData
   group by gender_concept_id
@@ -53,17 +53,17 @@ ageStatsPrior (gender_concept_id, age_value, total, accumulated) as (
 select
   104 as analysis_id,
   cast(o.gender_concept_id as VARCHAR(255)) as stratum_1,
-  o.total as count_value,
+  o.total::FLOAT as count_value,
   o.min_value,
   o.max_value,
   o.avg_value,
   o.stdev_value,
   MIN(case when p.accumulated >= .50 * o.total then age_value end)
-    as median_value,
-  MIN(case when p.accumulated >= .10 * o.total then age_value end) as p10_value,
-  MIN(case when p.accumulated >= .25 * o.total then age_value end) as p25_value,
-  MIN(case when p.accumulated >= .75 * o.total then age_value end) as p75_value,
-  MIN(case when p.accumulated >= .90 * o.total then age_value end) as p90_value
+   ::FLOAT as median_value,
+  MIN(case when p.accumulated >= .10 * o.total then age_value end)::FLOAT as p10_value,
+  MIN(case when p.accumulated >= .25 * o.total then age_value end)::FLOAT as p25_value,
+  MIN(case when p.accumulated >= .75 * o.total then age_value end)::FLOAT as p75_value,
+  MIN(case when p.accumulated >= .90 * o.total then age_value end)::FLOAT as p90_value
 from ageStatsPrior as p
 inner join overallStats as o on p.gender_concept_id = o.gender_concept_id
 group by

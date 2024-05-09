@@ -9,7 +9,7 @@ MODEL (
 with rawData as (
   select
     YEAR(vo.visit_start_date) * 100 + MONTH(vo.visit_start_date) as stratum_1,
-    COUNT(vo.person_id) as count_value
+    COUNT(vo.person_id)::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`visit_occurrence` as vo
   inner join

@@ -10,7 +10,7 @@ with rawData as (
   select
     YEAR(de.drug_era_start_date) * 100
     + MONTH(de.drug_era_start_date) as stratum_1,
-    COUNT(de.person_id) as count_value
+    COUNT(de.person_id)::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`drug_era` as de
   inner join

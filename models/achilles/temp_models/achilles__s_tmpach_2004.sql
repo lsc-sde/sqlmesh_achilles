@@ -19,7 +19,7 @@ with rawData as (
     cast(NULL as VARCHAR(255)) as stratum_5,
     personIntersection.count_value
   from
-    (select count(*) as count_value from (select person_id from `@temp_schema`.`achilles__obs`) as subquery) as personIntersection,
+    (select count(*)::FLOAT as count_value from (select person_id from `@temp_schema`.`achilles__obs`) as subquery) as personIntersection,
     (
       select count(distinct person_id) as totalPersons
       from `@src_database`.`@src_schema_omop`.`person`
@@ -38,7 +38,7 @@ with rawData as (
     cast(NULL as VARCHAR(255)) as stratum_5,
     personIntersection.count_value
   from
-    (select count(*) as count_value from (select person_id from `@temp_schema`.`achilles__prococ`) as subquery) as personIntersection,
+    (select count(*)::FLOAT as count_value from (select person_id from `@temp_schema`.`achilles__prococ`) as subquery) as personIntersection,
     (
       select count(distinct person_id) as totalPersons
       from `@src_database`.`@src_schema_omop`.`person`
@@ -61,7 +61,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__prococ`
         intersect
@@ -86,7 +86,7 @@ with rawData as (
     cast(NULL as VARCHAR(255)) as stratum_5,
     personIntersection.count_value
   from
-    (select count(*) as count_value from (select person_id from `@src_database`.`@src_schema_omop`.`death`) as subquery) as personIntersection,
+    (select count(*)::FLOAT as count_value from (select person_id from `@src_database`.`@src_schema_omop`.`death`) as subquery) as personIntersection,
     (
       select count(distinct person_id) as totalPersons
       from `@src_database`.`@src_schema_omop`.`person`
@@ -107,7 +107,7 @@ with rawData as (
   from
     (
       select count(
-        *) as count_value from (
+        *)::FLOAT as count_value from (
         select person_id from `@src_database`.`@src_schema_omop`.`death`
         intersect
         select person_id from `@temp_schema`.`achilles__obs`
@@ -133,7 +133,7 @@ with rawData as (
   from
     (
       select count(
-        *) as count_value from (
+        *)::FLOAT as count_value from (
         select person_id from `@src_database`.`@src_schema_omop`.`death`
         intersect
         select person_id from `@temp_schema`.`achilles__prococ`
@@ -159,7 +159,7 @@ with rawData as (
   from
     (
       select count(
-        *) as count_value from (
+        *)::FLOAT as count_value from (
         select person_id from `@src_database`.`@src_schema_omop`.`death`
         intersect
         select person_id from `@temp_schema`.`achilles__prococ`
@@ -185,7 +185,7 @@ with rawData as (
     cast(NULL as VARCHAR(255)) as stratum_5,
     personIntersection.count_value
   from
-    (select count(*) as count_value from (select person_id from `@temp_schema`.`achilles__msmt`) as subquery) as personIntersection,
+    (select count(*)::FLOAT as count_value from (select person_id from `@temp_schema`.`achilles__msmt`) as subquery) as personIntersection,
     (
       select count(distinct person_id) as totalPersons
       from `@src_database`.`@src_schema_omop`.`person`
@@ -208,7 +208,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__msmt`
         intersect
@@ -237,7 +237,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__msmt`
         intersect
@@ -266,7 +266,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__msmt`
         intersect
@@ -297,7 +297,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__msmt`
         intersect
@@ -326,7 +326,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__msmt`
         intersect
@@ -357,7 +357,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__msmt`
         intersect
@@ -388,7 +388,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__msmt`
         intersect
@@ -417,7 +417,7 @@ with rawData as (
     cast(NULL as VARCHAR(255)) as stratum_5,
     personIntersection.count_value
   from
-    (select count(*) as count_value from (select person_id from `@temp_schema`.`achilles__dvexp`) as subquery) as personIntersection,
+    (select count(*)::FLOAT as count_value from (select person_id from `@temp_schema`.`achilles__dvexp`) as subquery) as personIntersection,
     (
       select count(distinct person_id) as totalPersons
       from `@src_database`.`@src_schema_omop`.`person`
@@ -440,7 +440,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__dvexp`
         intersect
@@ -469,7 +469,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__dvexp`
         intersect
@@ -498,7 +498,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__dvexp`
         intersect
@@ -529,7 +529,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__dvexp`
         intersect
@@ -558,7 +558,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__dvexp`
         intersect
@@ -589,7 +589,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__dvexp`
         intersect
@@ -620,7 +620,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__dvexp`
         intersect
@@ -653,7 +653,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__dvexp`
         intersect
@@ -682,7 +682,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__dvexp`
         intersect
@@ -713,7 +713,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__dvexp`
         intersect
@@ -744,7 +744,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__dvexp`
         intersect
@@ -777,7 +777,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__dvexp`
         intersect
@@ -808,7 +808,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__dvexp`
         intersect
@@ -841,7 +841,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__dvexp`
         intersect
@@ -874,7 +874,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__dvexp`
         intersect
@@ -905,7 +905,7 @@ with rawData as (
     cast(NULL as VARCHAR(255)) as stratum_5,
     personIntersection.count_value
   from
-    (select count(*) as count_value from (select person_id from `@temp_schema`.`achilles__drexp`) as subquery) as personIntersection,
+    (select count(*)::FLOAT as count_value from (select person_id from `@temp_schema`.`achilles__drexp`) as subquery) as personIntersection,
     (
       select count(distinct person_id) as totalPersons
       from `@src_database`.`@src_schema_omop`.`person`
@@ -928,7 +928,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -957,7 +957,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -986,7 +986,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1017,7 +1017,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1046,7 +1046,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1077,7 +1077,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1108,7 +1108,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1141,7 +1141,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1170,7 +1170,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1201,7 +1201,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1232,7 +1232,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1265,7 +1265,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1296,7 +1296,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1329,7 +1329,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1362,7 +1362,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1397,7 +1397,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1426,7 +1426,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1457,7 +1457,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1488,7 +1488,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1521,7 +1521,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1552,7 +1552,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1585,7 +1585,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1618,7 +1618,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1653,7 +1653,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1684,7 +1684,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1717,7 +1717,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1750,7 +1750,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1785,7 +1785,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1818,7 +1818,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1853,7 +1853,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1888,7 +1888,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__drexp`
         intersect
@@ -1921,7 +1921,7 @@ with rawData as (
     cast(NULL as VARCHAR(255)) as stratum_5,
     personIntersection.count_value
   from
-    (select count(*) as count_value from (select person_id from `@temp_schema`.`achilles__conoc`) as subquery) as personIntersection,
+    (select count(*)::FLOAT as count_value from (select person_id from `@temp_schema`.`achilles__conoc`) as subquery) as personIntersection,
     (
       select count(distinct person_id) as totalPersons
       from `@src_database`.`@src_schema_omop`.`person`
@@ -1944,7 +1944,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -1973,7 +1973,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2002,7 +2002,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2033,7 +2033,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2062,7 +2062,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2093,7 +2093,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2124,7 +2124,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2157,7 +2157,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2186,7 +2186,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2217,7 +2217,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2248,7 +2248,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2281,7 +2281,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2312,7 +2312,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2345,7 +2345,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2378,7 +2378,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2413,7 +2413,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2442,7 +2442,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2473,7 +2473,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2504,7 +2504,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2537,7 +2537,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2568,7 +2568,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2601,7 +2601,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2634,7 +2634,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2669,7 +2669,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2700,7 +2700,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2733,7 +2733,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2766,7 +2766,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2801,7 +2801,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2834,7 +2834,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2869,7 +2869,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2904,7 +2904,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2941,7 +2941,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -2970,7 +2970,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3001,7 +3001,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3032,7 +3032,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3065,7 +3065,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3096,7 +3096,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3129,7 +3129,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3162,7 +3162,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3197,7 +3197,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3228,7 +3228,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3261,7 +3261,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3294,7 +3294,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3329,7 +3329,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3362,7 +3362,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3397,7 +3397,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3432,7 +3432,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3469,7 +3469,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3500,7 +3500,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3533,7 +3533,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3566,7 +3566,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3601,7 +3601,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3634,7 +3634,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3669,7 +3669,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3704,7 +3704,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3741,7 +3741,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3774,7 +3774,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3809,7 +3809,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3844,7 +3844,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3881,7 +3881,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3916,7 +3916,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3953,7 +3953,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect
@@ -3990,7 +3990,7 @@ with rawData as (
       select
         count(
           *
-        ) as count_value
+        )::FLOAT as count_value
       from (
         select person_id from `@temp_schema`.`achilles__conoc`
         intersect

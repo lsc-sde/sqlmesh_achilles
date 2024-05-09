@@ -9,7 +9,7 @@ MODEL (
 WITH rawData (stratum_id, count_value) AS (
   SELECT
     de.drug_concept_id AS stratum_id,
-    CAST(de.quantity AS FLOAT) AS count_value
+    de.quantity::FLOAT as count_value
   FROM
     `@src_database`.`@src_schema_omop`.`drug_exposure` AS de
     JOIN
@@ -28,10 +28,10 @@ overallStats (
 ) AS (
   SELECT
     stratum_id,
-    CAST(avg(1.0 * count_value) AS FLOAT) AS avg_value,
-    CAST(stddev(count_value) AS FLOAT) AS stdev_value,
-    min(count_value) AS min_value,
-    max(count_value) AS max_value,
+    avg(1.0 * count_value)::FLOAT as avg_value,
+    stddev(count_value)::FLOAT as stdev_value,
+    min(count_value)::FLOAT as min_value,
+    max(count_value)::FLOAT as max_value,
     count(*) AS total
   FROM rawData
   GROUP BY stratum_id
@@ -57,7 +57,7 @@ priorStats (stratum_id, count_value, total, accumulated) AS (
 )
 SELECT
   717 AS analysis_id,
-  o.total AS count_value,
+  o.total::FLOAT as count_value,
   o.min_value,
   o.max_value,
   o.avg_value,
@@ -67,27 +67,27 @@ SELECT
     CASE
       WHEN p.accumulated >= .50 * o.total THEN count_value ELSE o.max_value
     END
-  ) AS median_value,
+  )::FLOAT as median_value,
   min(
     CASE
       WHEN p.accumulated >= .10 * o.total THEN count_value ELSE o.max_value
     END
-  ) AS p10_value,
+  )::FLOAT as p10_value,
   min(
     CASE
       WHEN p.accumulated >= .25 * o.total THEN count_value ELSE o.max_value
     END
-  ) AS p25_value,
+  )::FLOAT as p25_value,
   min(
     CASE
       WHEN p.accumulated >= .75 * o.total THEN count_value ELSE o.max_value
     END
-  ) AS p75_value,
+  )::FLOAT as p75_value,
   min(
     CASE
       WHEN p.accumulated >= .90 * o.total THEN count_value ELSE o.max_value
     END
-  ) AS p90_value
+  )::FLOAT as p90_value
 FROM priorStats AS p
 INNER JOIN overallStats AS o ON p.stratum_id = o.stratum_id
 GROUP BY

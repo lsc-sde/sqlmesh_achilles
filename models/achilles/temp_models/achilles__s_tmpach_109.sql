@@ -131,7 +131,7 @@ select
   cast(NULL as varchar(255)) as stratum_3,
   cast(NULL as varchar(255)) as stratum_4,
   cast(NULL as varchar(255)) as stratum_5,
-  count(distinct op.person_id) as count_value
+  count(distinct op.person_id)::FLOAT as count_value
 from
   `@src_database`.`@src_schema_omop`.`observation_period` as op
 cross join

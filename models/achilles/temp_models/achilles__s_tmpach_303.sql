@@ -13,7 +13,7 @@ select
   cast(null as varchar(255)) as stratum_3,
   cast(null as varchar(255)) as stratum_4,
   cast(null as varchar(255)) as stratum_5,
-  count(*) as count_value
+  count(*)::FLOAT as count_value
 from `@src_database`.`@src_schema_omop`.`provider` as p
 inner join `@src_database`.`@src_schema_omop`.`visit_occurrence` as vo
   on vo.provider_id = p.provider_id

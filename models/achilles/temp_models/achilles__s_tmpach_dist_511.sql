@@ -13,19 +13,19 @@ SELECT
   CAST(NULL AS VARCHAR(255)) AS stratum_3,
   CAST(NULL AS VARCHAR(255)) AS stratum_4,
   CAST(NULL AS VARCHAR(255)) AS stratum_5,
-  count(count_value) AS count_value,
-  MIN(count_value) AS min_value,
-  MAX(count_value) AS max_value,
-  CAST(AVG(1.0 * count_value) AS FLOAT) AS avg_value,
-  CAST(stddev(count_value) AS FLOAT) AS stdev_value,
-  MAX(CASE WHEN p1 <= 0.50 THEN count_value ELSE -9999 END) AS median_value,
-  MAX(CASE WHEN p1 <= 0.10 THEN count_value ELSE -9999 END) AS p10_value,
-  MAX(CASE WHEN p1 <= 0.25 THEN count_value ELSE -9999 END) AS p25_value,
-  MAX(CASE WHEN p1 <= 0.75 THEN count_value ELSE -9999 END) AS p75_value,
-  MAX(CASE WHEN p1 <= 0.90 THEN count_value ELSE -9999 END) AS p90_value
+  count(count_value)::FLOAT as count_value,
+  MIN(count_value)::FLOAT as min_value,
+  MAX(count_value)::FLOAT as max_value,
+  AVG(1.0 * count_value)::FLOAT as avg_value,
+  stddev(count_value)::FLOAT as stdev_value,
+  MAX(CASE WHEN p1 <= 0.50 THEN count_value ELSE -9999 END)::FLOAT as median_value,
+  MAX(CASE WHEN p1 <= 0.10 THEN count_value ELSE -9999 END)::FLOAT as p10_value,
+  MAX(CASE WHEN p1 <= 0.25 THEN count_value ELSE -9999 END)::FLOAT as p25_value,
+  MAX(CASE WHEN p1 <= 0.75 THEN count_value ELSE -9999 END)::FLOAT as p75_value,
+  MAX(CASE WHEN p1 <= 0.90 THEN count_value ELSE -9999 END)::FLOAT as p90_value
 FROM (
   SELECT
-    DATEDIFF(co.max_date, d.death_date) AS count_value,    1.0
+    DATEDIFF(co.max_date, d.death_date)::FLOAT as count_value,    1.0
     * (ROW_NUMBER() OVER (ORDER BY  DATEDIFF( co.max_date,d.death_date)))
     / (count(*) OVER () + 1) AS p1
   FROM

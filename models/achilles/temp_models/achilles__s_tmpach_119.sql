@@ -13,7 +13,7 @@ select
   cast(null as VARCHAR(255)) as stratum_3,
   cast(null as VARCHAR(255)) as stratum_4,
   cast(null as VARCHAR(255)) as stratum_5,
-  count(*) as count_value
+  count(*)::FLOAT as count_value
 from
   `@src_database`.`@src_schema_omop`.`observation_period` as op1
 group by op1.period_type_concept_id

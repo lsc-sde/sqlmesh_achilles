@@ -9,7 +9,7 @@ MODEL (
 with rawData (person_id, age_value) as (
   select
     p.person_id,
-    MIN(YEAR(observation_period_start_date)) - P.YEAR_OF_BIRTH as age_value
+    MIN(YEAR(observation_period_start_date)) - P.YEAR_OF_BIRTH::FLOAT as age_value
   from `@src_database`.`@src_schema_omop`.`person` as p
   inner join
     `@src_database`.`@src_schema_omop`.`observation_period` as op
@@ -18,10 +18,10 @@ with rawData (person_id, age_value) as (
 ),
 overallStats (avg_value, stdev_value, min_value, max_value, total) as (
   select
-    cast(AVG(1.0 * age_value) as FLOAT) as avg_value,
-    cast(stddev(age_value) as FLOAT) as stdev_value,
-    MIN(age_value) as min_value,
-    MAX(age_value) as max_value,
+    AVG(1.0 * age_value)::FLOAT as avg_value,
+    stddev(age_value)::FLOAT as stdev_value,
+    MIN(age_value)::FLOAT as min_value,
+    MAX(age_value)::FLOAT as max_value,
     count(*) as total
   from rawData
 ),
@@ -45,21 +45,21 @@ ageStatsPrior (age_value, total, accumulated) as (
 tempResults as (
   select
     103 as analysis_id,
-    o.total as count_value,
+    o.total::FLOAT as count_value,
     o.min_value,
     o.max_value,
     o.avg_value,
     o.stdev_value,
     MIN(case when p.accumulated >= .50 * o.total then age_value end)
-      as median_value,
+     ::FLOAT as median_value,
     MIN(case when p.accumulated >= .10 * o.total then age_value end)
-      as p10_value,
+     ::FLOAT as p10_value,
     MIN(case when p.accumulated >= .25 * o.total then age_value end)
-      as p25_value,
+     ::FLOAT as p25_value,
     MIN(case when p.accumulated >= .75 * o.total then age_value end)
-      as p75_value,
+     ::FLOAT as p75_value,
     MIN(case when p.accumulated >= .90 * o.total then age_value end)
-      as p90_value
+     ::FLOAT as p90_value
   --
   from ageStatsPrior as p
   cross join overallStats as o

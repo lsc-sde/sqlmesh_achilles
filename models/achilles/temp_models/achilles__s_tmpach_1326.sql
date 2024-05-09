@@ -9,7 +9,7 @@ MODEL (
 select
   1326 as analysis_id,
   v.cdm_table as stratum_2,
-  v.record_count as count_value,
+  v.record_count::FLOAT as count_value,
   CAST(v.visit_detail_concept_id as VARCHAR(255)) as stratum_1,
   CAST(NULL as VARCHAR(255)) as stratum_3,
   CAST(NULL as VARCHAR(255)) as stratum_4,

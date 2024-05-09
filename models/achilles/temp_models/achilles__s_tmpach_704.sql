@@ -13,7 +13,7 @@ with rawData as (
     YEAR(de.drug_exposure_start_date) as stratum_2,
     FLOOR((YEAR(de.drug_exposure_start_date) - p.year_of_birth) / 10)
     as stratum_4,
-    COUNT(distinct p.person_id) as count_value
+    COUNT(distinct p.person_id)::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`person` as p
   inner join

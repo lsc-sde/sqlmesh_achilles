@@ -10,7 +10,7 @@ with rawData as (
   select
     YEAR(co.condition_start_date) * 100
     + MONTH(co.condition_start_date) as stratum_1,
-    COUNT(co.person_id) as count_value
+    COUNT(co.person_id)::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`condition_occurrence` as co
   inner join

@@ -11,7 +11,7 @@ with rawData as (
     de.drug_concept_id as stratum_1,
     YEAR(de.drug_exposure_start_date) * 100
     + MONTH(de.drug_exposure_start_date) as stratum_2,
-    COUNT(distinct de.person_id) as count_value
+    COUNT(distinct de.person_id)::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`drug_exposure` as de
   inner join

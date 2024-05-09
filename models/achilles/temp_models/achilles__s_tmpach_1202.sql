@@ -13,7 +13,7 @@ select
   cast(null as VARCHAR(255)) as stratum_3,
   cast(null as VARCHAR(255)) as stratum_4,
   cast(null as VARCHAR(255)) as stratum_5,
-  count(cs1.care_site_id) as count_value
+  count(cs1.care_site_id)::FLOAT as count_value
 from `@src_database`.`@src_schema_omop`.`care_site` as cs1
 where cs1.place_of_service_concept_id is not null
 group by cs1.place_of_service_concept_id

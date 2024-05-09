@@ -9,7 +9,7 @@ MODEL (
 with rawData as (
   select
     LEFT(l1.zip, 3) as stratum_1,
-    COUNT(distinct care_site_id) as count_value
+    COUNT(distinct care_site_id)::FLOAT as count_value
   from `@src_database`.`@src_schema_omop`.`care_site` as cs1
   inner join `@src_database`.`@src_schema_omop`.`location` as l1
     on cs1.location_id = l1.location_id

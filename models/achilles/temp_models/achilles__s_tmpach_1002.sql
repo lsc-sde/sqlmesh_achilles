@@ -11,7 +11,7 @@ with rawData as (
     ce.condition_concept_id as stratum_1,
     YEAR(ce.condition_era_start_date) * 100
     + MONTH(ce.condition_era_start_date) as stratum_2,
-    COUNT(distinct ce.person_id) as count_value
+    COUNT(distinct ce.person_id)::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`condition_era` as ce
   inner join

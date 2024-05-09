@@ -13,7 +13,7 @@ select
   cast(null as VARCHAR(255)) as stratum_3,
   cast(null as VARCHAR(255)) as stratum_4,
   cast(null as VARCHAR(255)) as stratum_5,
-  v.record_count as count_value
+  v.record_count::FLOAT as count_value
 from (
   select
     'drug_exposure' as cdm_table,

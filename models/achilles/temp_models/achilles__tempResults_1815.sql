@@ -9,7 +9,7 @@ select
   1815 as analysis_id,
   cast(o.stratum1_id as VARCHAR(255)) as stratum1_id,
   cast(o.stratum2_id as VARCHAR(255)) as stratum2_id,
-  o.total as count_value,
+  o.total::FLOAT as count_value,
   o.min_value,
   o.max_value,
   o.avg_value,
@@ -18,27 +18,27 @@ select
     case
       when p.accumulated >= .50 * o.total then count_value else o.max_value
     end
-  ) as median_value,
+  )::FLOAT as median_value,
   min(
     case
       when p.accumulated >= .10 * o.total then count_value else o.max_value
     end
-  ) as p10_value,
+  )::FLOAT as p10_value,
   min(
     case
       when p.accumulated >= .25 * o.total then count_value else o.max_value
     end
-  ) as p25_value,
+  )::FLOAT as p25_value,
   min(
     case
       when p.accumulated >= .75 * o.total then count_value else o.max_value
     end
-  ) as p75_value,
+  )::FLOAT as p75_value,
   min(
     case
       when p.accumulated >= .90 * o.total then count_value else o.max_value
     end
-  ) as p90_value
+  )::FLOAT as p90_value
 from
   (
     select
@@ -61,17 +61,17 @@ inner join
     select
       m.subject_id as stratum1_id,
       m.unit_concept_id as stratum2_id,
-      cast(avg(1.0 * m.count_value) as FLOAT) as avg_value,
-      cast(stddev(m.count_value) as FLOAT) as stdev_value,
-      min(m.count_value) as min_value,
-      max(m.count_value) as max_value,
+      avg(1.0 * m.count_value)::FLOAT as avg_value,
+      stddev(m.count_value)::FLOAT as stdev_value,
+      min(m.count_value)::FLOAT as min_value,
+      max(m.count_value)::FLOAT as max_value,
       count(*) as total
     from
       (
         select
           m.measurement_concept_id as subject_id,
           m.unit_concept_id,
-          cast(m.value_as_number as FLOAT) as count_value
+          m.value_as_number::FLOAT as count_value
         from
           `@src_database`.`@src_schema_omop`.`measurement` as m
         inner join

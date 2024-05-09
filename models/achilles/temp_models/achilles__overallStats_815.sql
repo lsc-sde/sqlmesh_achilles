@@ -8,16 +8,16 @@ MODEL (
 select
   o.subject_id as stratum1_id,
   o.unit_concept_id as stratum2_id,
-  CAST(AVG(1.0 * o.count_value) as FLOAT) as avg_value,
-  CAST(STDDEV(o.count_value) as FLOAT) as stdev_value,
-  MIN(o.count_value) as min_value,
-  MAX(o.count_value) as max_value,
+  AVG(1.0 * o.count_value)::FLOAT as avg_value,
+  STDDEV(o.count_value)::FLOAT as stdev_value,
+  MIN(o.count_value)::FLOAT as min_value,
+  MAX(o.count_value)::FLOAT as max_value,
   COUNT(*) as total
 from (
   select
     o.observation_concept_id as subject_id,
     o.unit_concept_id,
-    CAST(o.value_as_number as FLOAT) as count_value
+    o.value_as_number::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`observation` as o
   inner join

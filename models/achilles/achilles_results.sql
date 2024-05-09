@@ -24,7 +24,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_0`
     union all
@@ -35,7 +35,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1`
     union all
@@ -46,7 +46,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_2`
     union all
@@ -57,7 +57,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_3`
     union all
@@ -68,7 +68,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_4`
     union all
@@ -79,7 +79,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_5`
     union all
@@ -90,7 +90,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_10`
     union all
@@ -101,7 +101,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_11`
     union all
@@ -112,7 +112,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_12`
     union all
@@ -123,7 +123,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_101`
     union all
@@ -134,7 +134,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_102`
     union all
@@ -145,7 +145,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_108`
     union all
@@ -156,7 +156,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_109`
     union all
@@ -167,7 +167,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_110`
     union all
@@ -178,7 +178,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_111`
     union all
@@ -189,7 +189,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_112`
     union all
@@ -200,7 +200,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_113`
     union all
@@ -211,7 +211,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_116`
     union all
@@ -222,7 +222,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_117`
     union all
@@ -233,7 +233,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_119`
     union all
@@ -244,7 +244,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_200`
     union all
@@ -255,7 +255,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_201`
     union all
@@ -266,7 +266,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_202`
     union all
@@ -277,7 +277,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_204`
     union all
@@ -288,7 +288,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_207`
     union all
@@ -299,7 +299,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_209`
     union all
@@ -310,7 +310,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_210`
     union all
@@ -321,7 +321,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_212`
     union all
@@ -332,7 +332,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_220`
     union all
@@ -343,7 +343,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_221`
     union all
@@ -354,7 +354,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_225`
     union all
@@ -365,7 +365,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_226`
     union all
@@ -376,7 +376,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_300`
     union all
@@ -387,7 +387,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_301`
     union all
@@ -398,7 +398,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_303`
     union all
@@ -409,7 +409,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_325`
     union all
@@ -420,7 +420,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_400`
     union all
@@ -431,7 +431,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_401`
     union all
@@ -442,7 +442,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_402`
     union all
@@ -453,7 +453,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_404`
     union all
@@ -464,7 +464,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_405`
     union all
@@ -475,7 +475,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_414`
     union all
@@ -486,7 +486,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_415`
     union all
@@ -497,7 +497,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_416`
     union all
@@ -508,7 +508,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_420`
     union all
@@ -519,7 +519,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_425`
     union all
@@ -530,7 +530,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_500`
     union all
@@ -541,7 +541,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_501`
     union all
@@ -552,7 +552,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_502`
     union all
@@ -563,7 +563,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_504`
     union all
@@ -574,7 +574,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_505`
     union all
@@ -585,7 +585,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_525`
     union all
@@ -596,7 +596,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_600`
     union all
@@ -607,7 +607,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_601`
     union all
@@ -618,7 +618,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_602`
     union all
@@ -629,7 +629,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_604`
     union all
@@ -640,7 +640,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_605`
     union all
@@ -651,7 +651,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_620`
     union all
@@ -662,7 +662,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_625`
     union all
@@ -673,7 +673,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_630`
     union all
@@ -684,7 +684,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_691`
     union all
@@ -695,7 +695,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_700`
     union all
@@ -706,7 +706,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_701`
     union all
@@ -717,7 +717,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_702`
     union all
@@ -728,7 +728,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_704`
     union all
@@ -739,7 +739,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_705`
     union all
@@ -750,7 +750,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_720`
     union all
@@ -761,7 +761,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_725`
     union all
@@ -772,7 +772,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_791`
     union all
@@ -783,7 +783,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_800`
     union all
@@ -794,7 +794,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_801`
     union all
@@ -805,7 +805,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_802`
     union all
@@ -816,7 +816,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_804`
     union all
@@ -827,7 +827,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_805`
     union all
@@ -838,7 +838,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_807`
     union all
@@ -849,7 +849,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_814`
     union all
@@ -860,7 +860,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_820`
     union all
@@ -871,7 +871,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_822`
     union all
@@ -882,7 +882,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_823`
     union all
@@ -893,7 +893,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_825`
     union all
@@ -904,7 +904,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_826`
     union all
@@ -915,7 +915,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_827`
     union all
@@ -926,7 +926,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_891`
     union all
@@ -937,7 +937,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_900`
     union all
@@ -948,7 +948,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_901`
     union all
@@ -959,7 +959,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_902`
     union all
@@ -970,7 +970,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_904`
     union all
@@ -981,7 +981,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_920`
     union all
@@ -992,7 +992,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1000`
     union all
@@ -1003,7 +1003,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1001`
     union all
@@ -1014,7 +1014,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1002`
     union all
@@ -1025,7 +1025,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1004`
     union all
@@ -1036,7 +1036,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1020`
     union all
@@ -1047,7 +1047,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1100`
     union all
@@ -1058,7 +1058,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1101`
     union all
@@ -1069,7 +1069,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1102`
     union all
@@ -1080,7 +1080,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1103`
     union all
@@ -1091,7 +1091,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1200`
     union all
@@ -1102,7 +1102,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1201`
     union all
@@ -1113,7 +1113,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1202`
     union all
@@ -1124,7 +1124,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1203`
     union all
@@ -1135,7 +1135,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1300`
     union all
@@ -1146,7 +1146,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1301`
     union all
@@ -1157,7 +1157,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1302`
     union all
@@ -1168,7 +1168,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1304`
     union all
@@ -1179,7 +1179,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1312`
     union all
@@ -1190,7 +1190,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1320`
     union all
@@ -1201,7 +1201,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1321`
     union all
@@ -1212,7 +1212,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1325`
     union all
@@ -1223,7 +1223,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1326`
     union all
@@ -1234,7 +1234,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1408`
     union all
@@ -1245,7 +1245,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1409`
     union all
@@ -1256,7 +1256,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1410`
     union all
@@ -1267,7 +1267,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1411`
     union all
@@ -1278,7 +1278,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1412`
     union all
@@ -1289,7 +1289,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1413`
     union all
@@ -1300,7 +1300,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1425`
     union all
@@ -1311,7 +1311,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1800`
     union all
@@ -1322,7 +1322,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1801`
     union all
@@ -1333,7 +1333,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1802`
     union all
@@ -1344,7 +1344,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1804`
     union all
@@ -1355,7 +1355,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1805`
     union all
@@ -1366,7 +1366,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1807`
     union all
@@ -1377,7 +1377,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1811`
     union all
@@ -1388,7 +1388,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1814`
     union all
@@ -1399,7 +1399,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1818`
     union all
@@ -1410,7 +1410,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1819`
     union all
@@ -1421,7 +1421,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1820`
     union all
@@ -1432,7 +1432,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1821`
     union all
@@ -1443,7 +1443,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1822`
     union all
@@ -1454,7 +1454,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1823`
     union all
@@ -1465,7 +1465,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1825`
     union all
@@ -1476,7 +1476,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1826`
     union all
@@ -1487,7 +1487,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1827`
     union all
@@ -1498,7 +1498,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1891`
     union all
@@ -1509,7 +1509,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_1900`
     union all
@@ -1520,7 +1520,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_2000`
     union all
@@ -1531,7 +1531,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_2001`
     union all
@@ -1542,7 +1542,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_2002`
     union all
@@ -1553,7 +1553,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_2003`
     union all
@@ -1564,7 +1564,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_2004`
     union all
@@ -1575,7 +1575,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_2100`
     union all
@@ -1586,7 +1586,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_2101`
     union all
@@ -1597,7 +1597,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_2102`
     union all
@@ -1608,7 +1608,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_2104`
     union all
@@ -1619,7 +1619,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_2105`
     union all
@@ -1630,7 +1630,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_2120`
     union all
@@ -1641,7 +1641,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_2125`
     union all
@@ -1652,7 +1652,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_2191`
     union all
@@ -1663,7 +1663,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_2200`
     union all
@@ -1674,7 +1674,7 @@ from
       cast(stratum_3 as varchar(255)) as stratum_3,
       cast(stratum_4 as varchar(255)) as stratum_4,
       cast(stratum_5 as varchar(255)) as stratum_5,
-      cast(count_value as bigint) as count_value
+      count_value::FLOAT as count_value
     from
       `@temp_schema`.`achilles__s_tmpach_2201`
   ) as q

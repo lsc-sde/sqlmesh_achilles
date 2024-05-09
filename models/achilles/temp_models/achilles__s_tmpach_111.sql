@@ -10,7 +10,7 @@ with rawData as (
   select
     YEAR(op1.observation_period_start_date) * 100
     + MONTH(op1.OBSERVATION_PERIOD_START_DATE) as stratum_1,
-    COUNT(distinct op1.PERSON_ID) as count_value
+    COUNT(distinct op1.PERSON_ID)::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`observation_period` as op1
   group by

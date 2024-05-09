@@ -13,7 +13,7 @@ select
   cast(null as varchar(255)) as stratum_3,
   cast(null as varchar(255)) as stratum_4,
   cast(null as varchar(255)) as stratum_5,
-  count(m.PERSON_ID) as count_value
+  count(m.PERSON_ID)::FLOAT as count_value
 from
   `@src_database`.`@src_schema_omop`.`measurement` as m
 where m.value_as_number is null

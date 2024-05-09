@@ -22,7 +22,7 @@ select
   cast(null as varchar(255)) as stratum_3,
   cast(null as varchar(255)) as stratum_4,
   cast(null as varchar(255)) as stratum_5,
-  coalesce(count(distinct op1.PERSON_ID), 0) as count_value
+  coalesce(count(distinct op1.PERSON_ID), 0)::FLOAT as count_value
 from date_keys as t1
 left join
   (

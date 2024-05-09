@@ -12,7 +12,7 @@ select
   CAST(stratum_3 as VARCHAR(255)) as stratum_3,
   CAST(NULL as VARCHAR(255)) as stratum_4,
   CAST(NULL as VARCHAR(255)) as stratum_5,
-  COUNT(person_id) as count_value
+  COUNT(person_id)::FLOAT as count_value
 from
   `@temp_schema`.`achilles__rawData_1818`
 group by

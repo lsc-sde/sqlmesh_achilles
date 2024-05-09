@@ -13,7 +13,7 @@ with rawData as (
       )
       / 30
     ) as stratum_1,
-    count(distinct p1.person_id) as count_value
+    count(distinct p1.person_id)::FLOAT as count_value
   from `@src_database`.`@src_schema_omop`.`person` as p1
   inner join
     (

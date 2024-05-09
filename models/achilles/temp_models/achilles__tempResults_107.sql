@@ -11,7 +11,7 @@ with rawData (age_decile, count_value) as (
     floor((year(op.OBSERVATION_PERIOD_START_DATE) - p.YEAR_OF_BIRTH) / 10)
       as age_decile,
     datediff( op.observation_period_end_date,op.observation_period_start_date
-    ) as count_value
+    )::FLOAT as count_value
   from
     (
       select
@@ -32,10 +32,10 @@ overallStats (
 ) as (
   select
     age_decile,
-    cast(avg(1.0 * count_value) as FLOAT) as avg_value,
-    cast(stddev(count_value) as FLOAT) as stdev_value,
-    min(count_value) as min_value,
-    max(count_value) as max_value,
+    avg(1.0 * count_value)::FLOAT as avg_value,
+    stddev(count_value)::FLOAT as stdev_value,
+    min(count_value)::FLOAT as min_value,
+    max(count_value)::FLOAT as max_value,
     count(*) as total
   from rawData
   group by age_decile
@@ -62,7 +62,7 @@ priorStats (age_decile, count_value, total, accumulated) as (
 select
   107 as analysis_id,
   cast(o.age_decile as VARCHAR(255)) as age_decile,
-  o.total as count_value,
+  o.total::FLOAT as count_value,
   o.min_value,
   o.max_value,
   o.avg_value,
@@ -71,27 +71,27 @@ select
     case
       when p.accumulated >= .50 * o.total then count_value else o.max_value
     end
-  ) as median_value,
+  )::FLOAT as median_value,
   min(
     case
       when p.accumulated >= .10 * o.total then count_value else o.max_value
     end
-  ) as p10_value,
+  )::FLOAT as p10_value,
   min(
     case
       when p.accumulated >= .25 * o.total then count_value else o.max_value
     end
-  ) as p25_value,
+  )::FLOAT as p25_value,
   min(
     case
       when p.accumulated >= .75 * o.total then count_value else o.max_value
     end
-  ) as p75_value,
+  )::FLOAT as p75_value,
   min(
     case
       when p.accumulated >= .90 * o.total then count_value else o.max_value
     end
-  ) as p90_value
+  )::FLOAT as p90_value
 from priorStats as p
 inner join overallStats as o on p.age_decile = o.age_decile
 group by

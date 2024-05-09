@@ -11,7 +11,7 @@ with rawData as (
     p1.gender_concept_id as stratum_2,
     YEAR(visit_start_date) as stratum_1,
     FLOOR((YEAR(visit_start_date) - p1.year_of_birth) / 10) as stratum_3,
-    COUNT(distinct p1.PERSON_ID) as count_value
+    COUNT(distinct p1.PERSON_ID)::FLOAT as count_value
   from `@src_database`.`@src_schema_omop`.`person` as p1
   inner join
     `@src_database`.`@src_schema_omop`.`visit_occurrence` as vo1

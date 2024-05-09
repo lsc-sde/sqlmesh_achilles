@@ -12,7 +12,7 @@ with rawData as (
     p.gender_concept_id as stratum_3,
     YEAR(po.procedure_date) as stratum_2,
     FLOOR((YEAR(po.procedure_date) - p.year_of_birth) / 10) as stratum_4,
-    COUNT(distinct p.person_id) as count_value
+    COUNT(distinct p.person_id)::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`person` as p
   inner join

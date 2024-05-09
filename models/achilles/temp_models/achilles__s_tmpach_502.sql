@@ -9,7 +9,7 @@ MODEL (
 with rawData as (
   select
     YEAR(d.death_date) * 100 + MONTH(d.death_date) as stratum_1,
-    COUNT(distinct d.person_id) as count_value
+    COUNT(distinct d.person_id)::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`death` as d
   inner join

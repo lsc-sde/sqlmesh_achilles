@@ -13,7 +13,7 @@ select
   cast(null as varchar(255)) as stratum_3,
   cast(null as varchar(255)) as stratum_4,
   cast(null as varchar(255)) as stratum_5,
-  count(vo1.PERSON_ID) as count_value
+  count(vo1.PERSON_ID)::FLOAT as count_value
 from
   `@src_database`.`@src_schema_omop`.`visit_occurrence` as vo1
 left join `@src_database`.`@src_schema_omop`.`person` as p1

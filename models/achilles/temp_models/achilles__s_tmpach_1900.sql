@@ -12,7 +12,7 @@ select
   cast(null as varchar(255)) as stratum_3,
   cast(null as varchar(255)) as stratum_4,
   cast(null as varchar(255)) as stratum_5,
-  0 as count_value
+  0::FLOAT as count_value
 
 
 {# -- 1900	completeness report
@@ -25,13 +25,13 @@ select
   source_value as stratum_3,
   cast(null as varchar(255)) as stratum_4,
   cast(null as varchar(255)) as stratum_5,
-  cnt as count_value
+  cnt::FLOAT as count_value
 
 from (
   select
     'measurement' as table_name,
     'measurement_source_value' as column_name,
-    measurement_source_value as source_value,
+    measurement_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`measurement`
   where measurement_concept_id = 0
@@ -40,7 +40,7 @@ from (
   select
     'measurement' as table_name,
     'unit_source_value' as column_name,
-    unit_source_value as source_value,
+    unit_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`measurement`
   where unit_concept_id = 0
@@ -49,7 +49,7 @@ from (
   select
     'procedure_occurrence' as table_name,
     'procedure_source_value' as column_name,
-    procedure_source_value as source_value,
+    procedure_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`procedure_occurrence`
   where procedure_concept_id = 0
@@ -58,7 +58,7 @@ from (
   select
     'procedure_occurrence' as table_name,
     'modifier_source_value' as column_name,
-    modifier_source_value as source_value,
+    modifier_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`procedure_occurrence`
   where modifier_concept_id = 0
@@ -67,7 +67,7 @@ from (
   select
     'drug_exposure' as table_name,
     'drug_source_value' as column_name,
-    drug_source_value as source_value,
+    drug_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`drug_exposure`
   where drug_concept_id = 0
@@ -76,7 +76,7 @@ from (
   select
     'drug_exposure' as table_name,
     'route_source_value' as column_name,
-    route_source_value as source_value,
+    route_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`drug_exposure`
   where route_concept_id = 0
@@ -85,7 +85,7 @@ from (
   select
     'condition_occurrence' as table_name,
     'condition_source_value' as column_name,
-    condition_source_value as source_value,
+    condition_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`condition_occurrence`
   where condition_concept_id = 0
@@ -94,7 +94,7 @@ from (
   select
     'condition_occurrence' as table_name,
     'condition_status_source_value' as column_name,
-    condition_status_source_value as source_value,
+    condition_status_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`condition_occurrence`
   where condition_status_concept_id = 0
@@ -103,7 +103,7 @@ from (
   select
     'observation' as table_name,
     'observation_source_value' as column_name,
-    observation_source_value as source_value,
+    observation_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`observation`
   where observation_concept_id = 0
@@ -112,7 +112,7 @@ from (
   select
     'observation' as table_name,
     'unit_source_value' as column_name,
-    unit_source_value as source_value,
+    unit_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`observation`
   where unit_concept_id = 0
@@ -121,7 +121,7 @@ from (
   select
     'observation' as table_name,
     'qualifier_source_value' as column_name,
-    qualifier_source_value as source_value,
+    qualifier_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`observation`
   where qualifier_concept_id = 0
@@ -130,7 +130,7 @@ from (
   select
     'payer_plan_period' as table_name,
     'payer_source_value' as column_name,
-    payer_source_value as source_value,
+    payer_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`payer_plan_period`
   where payer_concept_id = 0
@@ -139,7 +139,7 @@ from (
   select
     'payer_plan_period' as table_name,
     'plan_source_value' as column_name,
-    plan_source_value as source_value,
+    plan_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`payer_plan_period`
   where plan_concept_id = 0
@@ -148,7 +148,7 @@ from (
   select
     'payer_plan_period' as table_name,
     'sponsor_source_value' as column_name,
-    sponsor_source_value as source_value,
+    sponsor_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`payer_plan_period`
   where sponsor_concept_id = 0
@@ -157,7 +157,7 @@ from (
   select
     'payer_plan_period' as table_name,
     'stop_reason_source_value' as column_name,
-    stop_reason_source_value as source_value,
+    stop_reason_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`payer_plan_period`
   where stop_reason_concept_id = 0
@@ -166,7 +166,7 @@ from (
   select
     'provider' as table_name,
     'specialty_source_value' as column_name,
-    specialty_source_value as source_value,
+    specialty_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`provider`
   where specialty_concept_id = 0
@@ -175,7 +175,7 @@ from (
   select
     'provider' as table_name,
     'gender_source_value' as column_name,
-    gender_source_value as source_value,
+    gender_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`provider`
   where gender_concept_id = 0
@@ -184,7 +184,7 @@ from (
   select
     'person' as table_name,
     'gender_source_value' as column_name,
-    gender_source_value as source_value,
+    gender_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`person`
   where gender_concept_id = 0
@@ -193,7 +193,7 @@ from (
   select
     'person' as table_name,
     'race_source_value' as column_name,
-    race_source_value as source_value,
+    race_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`person`
   where race_concept_id = 0
@@ -202,7 +202,7 @@ from (
   select
     'person' as table_name,
     'ethnicity_source_value' as column_name,
-    ethnicity_source_value as source_value,
+    ethnicity_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`person`
   where ethnicity_concept_id = 0
@@ -211,7 +211,7 @@ from (
   select
     'specimen' as table_name,
     'specimen_source_value' as column_name,
-    specimen_source_value as source_value,
+    specimen_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`specimen`
   where specimen_concept_id = 0
@@ -220,7 +220,7 @@ from (
   select
     'specimen' as table_name,
     'unit_source_value' as column_name,
-    unit_source_value as source_value,
+    unit_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`specimen`
   where unit_concept_id = 0
@@ -229,7 +229,7 @@ from (
   select
     'specimen' as table_name,
     'anatomic_site_source_value' as column_name,
-    anatomic_site_source_value as source_value,
+    anatomic_site_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`specimen`
   where anatomic_site_concept_id = 0
@@ -238,7 +238,7 @@ from (
   select
     'specimen' as table_name,
     'disease_status_source_value' as column_name,
-    disease_status_source_value as source_value,
+    disease_status_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`specimen`
   where disease_status_concept_id = 0
@@ -248,7 +248,7 @@ from (
   select
     'visit_occurrence' as table_name,
     'visit_source_value' as column_name,
-    visit_source_value as source_value,
+    visit_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`visit_occurrence`
   where visit_concept_id = 0
@@ -258,7 +258,7 @@ from (
   select
     'visit_occurrence' as table_name,
     'admitted_from_source_value' as column_name,
-    admitted_from_source_value as source_value,
+    admitted_from_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`visit_occurrence`
   where admitted_from_concept_id = 0
@@ -267,7 +267,7 @@ from (
   select
     'visit_occurrence' as table_name,
     'discharged_to_source_value' as column_name,
-    discharged_to_source_value as source_value,
+    discharged_to_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`visit_occurrence`
   where discharged_to_concept_id = 0
@@ -277,7 +277,7 @@ from (
   select
     'device_exposure' as table_name,
     'device_source_value' as column_name,
-    device_source_value as source_value,
+    device_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`device_exposure`
   where device_concept_id = 0
@@ -286,7 +286,7 @@ from (
   select
     'death' as table_name,
     'cause_source_value' as column_name,
-    cause_source_value as source_value,
+    cause_source_value::FLOAT as source_value,
     count(*) as cnt
   from `@src_database`.`@src_schema_omop`.`death`
   where cause_concept_id = 0

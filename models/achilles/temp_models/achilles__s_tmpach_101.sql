@@ -9,7 +9,7 @@ MODEL (
 with rawData as (
   select
     year(op1.index_date) - p1.YEAR_OF_BIRTH as stratum_1,
-    count(p1.person_id) as count_value
+    count(p1.person_id)::FLOAT as count_value
   from `@src_database`.`@src_schema_omop`.`person` as p1
   inner join
     (select

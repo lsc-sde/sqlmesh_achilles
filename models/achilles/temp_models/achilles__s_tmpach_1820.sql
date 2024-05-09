@@ -9,7 +9,7 @@ MODEL (
 with rawData as (
   select
     YEAR(m.measurement_date) * 100 + MONTH(m.measurement_date) as stratum_1,
-    COUNT(m.person_id) as count_value
+    COUNT(m.person_id)::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`measurement` as m
   inner join

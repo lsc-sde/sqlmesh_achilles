@@ -9,10 +9,10 @@ MODEL (
 -- Note: using temp table instead of nested query because this gives vastly improved performance in Oracle
 select distinct
   YEAR(payer_plan_period_start_date) * 100
-  + MONTH(payer_plan_period_start_date) as obs_month,
+  + MONTH(payer_plan_period_start_date)::INT as obs_month,
   MAKE_DATE(
     YEAR(payer_plan_period_start_date), MONTH(payer_plan_period_start_date), 1
-  ) as obs_month_start,
-  LAST_DAY(payer_plan_period_start_date) as obs_month_end
+  )::TIMESTAMP as obs_month_start,
+  LAST_DAY(payer_plan_period_start_date)::TIMESTAMP as obs_month_end
 from
   `@src_database`.`@src_schema_omop`.`payer_plan_period`

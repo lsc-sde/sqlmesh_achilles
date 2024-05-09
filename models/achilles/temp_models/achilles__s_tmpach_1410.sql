@@ -12,7 +12,7 @@ select
   cast(null as VARCHAR(255)) as stratum_3,
   cast(null as VARCHAR(255)) as stratum_4,
   cast(null as VARCHAR(255)) as stratum_5,
-  count(distinct p1.PERSON_ID) as count_value
+  count(distinct p1.PERSON_ID)::FLOAT as count_value
 from
   `@src_database`.`@src_schema_omop`.`person` as p1
 inner join

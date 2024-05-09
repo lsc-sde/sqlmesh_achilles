@@ -10,7 +10,7 @@ with rawData as (
   select
     po.procedure_concept_id as stratum_1,
     YEAR(po.procedure_date) * 100 + MONTH(po.procedure_date) as stratum_2,
-    COUNT(distinct po.person_id) as count_value
+    COUNT(distinct po.person_id)::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`procedure_occurrence` as po
   inner join

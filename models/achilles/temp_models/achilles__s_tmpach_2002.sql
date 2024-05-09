@@ -13,7 +13,7 @@ select
   CAST(NULL as VARCHAR(255)) as stratum_3,
   CAST(NULL as VARCHAR(255)) as stratum_4,
   CAST(NULL as VARCHAR(255)) as stratum_5,
-  CAST(e.cnt as BIGINT) as count_value
+  e.cnt::FLOAT as count_value
 from (
   select COUNT(*) as cnt
   from (

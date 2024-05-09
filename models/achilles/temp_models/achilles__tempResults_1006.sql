@@ -11,10 +11,10 @@ with overallStats (
   select
     subject_id as stratum1_id,
     gender_concept_id as stratum2_id,
-    cast(avg(1.0 * count_value) as FLOAT) as avg_value,
-    cast(stddev(count_value) as FLOAT) as stdev_value,
-    min(count_value) as min_value,
-    max(count_value) as max_value,
+    avg(1.0 * count_value)::FLOAT as avg_value,
+    stddev(count_value)::FLOAT as stdev_value,
+    min(count_value)::FLOAT as min_value,
+    max(count_value)::FLOAT as max_value,
     count(*) as total
   from `@temp_schema`.`achilles__rawData_1006`
   group by subject_id, gender_concept_id
@@ -54,7 +54,7 @@ select
   1006 as analysis_id,
   cast(o.stratum1_id as VARCHAR(255)) as stratum1_id,
   cast(o.stratum2_id as VARCHAR(255)) as stratum2_id,
-  o.total as count_value,
+  o.total::FLOAT as count_value,
   o.min_value,
   o.max_value,
   o.avg_value,
@@ -63,27 +63,27 @@ select
     case
       when p.accumulated >= .50 * o.total then count_value else o.max_value
     end
-  ) as median_value,
+  )::FLOAT as median_value,
   min(
     case
       when p.accumulated >= .10 * o.total then count_value else o.max_value
     end
-  ) as p10_value,
+  )::FLOAT as p10_value,
   min(
     case
       when p.accumulated >= .25 * o.total then count_value else o.max_value
     end
-  ) as p25_value,
+  )::FLOAT as p25_value,
   min(
     case
       when p.accumulated >= .75 * o.total then count_value else o.max_value
     end
-  ) as p75_value,
+  )::FLOAT as p75_value,
   min(
     case
       when p.accumulated >= .90 * o.total then count_value else o.max_value
     end
-  ) as p90_value
+  )::FLOAT as p90_value
 from priorStats as p
 inner join
   overallStats as o

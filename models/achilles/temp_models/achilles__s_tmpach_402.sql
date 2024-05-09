@@ -11,7 +11,7 @@ with rawData as (
     co.condition_concept_id as stratum_1,
     YEAR(co.condition_start_date) * 100
     + MONTH(co.condition_start_date) as stratum_2,
-    COUNT(distinct co.person_id) as count_value
+    COUNT(distinct co.person_id)::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`condition_occurrence` as co
   inner join

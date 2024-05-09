@@ -13,7 +13,7 @@ select
   cast(null as VARCHAR(255)) as stratum_3,
   cast(null as VARCHAR(255)) as stratum_4,
   cast(null as VARCHAR(255)) as stratum_5,
-  count(distinct op1.PERSON_ID) as count_value
+  count(distinct op1.PERSON_ID)::FLOAT as count_value
 from
   (
     select

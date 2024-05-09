@@ -11,7 +11,7 @@ with rawData as (
     vd.visit_detail_concept_id as stratum_1,
     YEAR(vd.visit_detail_start_date) * 100
     + MONTH(vd.visit_detail_start_date) as stratum_2,
-    COUNT(distinct vd.person_id) as count_value
+    COUNT(distinct vd.person_id)::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`visit_detail` as vd
   inner join

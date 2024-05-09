@@ -17,7 +17,7 @@ from (
   select
     o.observation_concept_id as subject_id,
     o.unit_concept_id,
-    cast(o.value_as_number as FLOAT) as count_value
+    o.value_as_number::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`observation` as o
   inner join

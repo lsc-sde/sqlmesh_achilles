@@ -13,7 +13,7 @@ select
   CAST(NULL as VARCHAR(255)) as stratum_3,
   CAST(NULL as VARCHAR(255)) as stratum_4,
   CAST(NULL as VARCHAR(255)) as stratum_5,
-  COUNT(*) as count_value
+  COUNT(*)::FLOAT as count_value
 from
   `@src_database`.`@src_schema_omop`.`visit_occurrence` as vo
 left join

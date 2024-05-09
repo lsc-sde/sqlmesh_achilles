@@ -15,7 +15,7 @@ select
   make_date(
     year(payer_plan_period_start_date), month(payer_plan_period_start_date), 1
   ) as stratum_1,
-  count(distinct p1.PERSON_ID) as count_value
+  count(distinct p1.PERSON_ID)::FLOAT as count_value
 from
   `@src_database`.`@src_schema_omop`.`person` as p1
 inner join `@src_database`.`@src_schema_omop`.`payer_plan_period` as ppp1

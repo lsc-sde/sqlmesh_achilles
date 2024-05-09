@@ -9,7 +9,7 @@ MODEL (
 select
   ce.condition_concept_id as subject_id,
   p.gender_concept_id,
-  ce.condition_start_year - p.year_of_birth as count_value
+  ce.condition_start_year - p.year_of_birth::FLOAT as count_value
 from
   `@src_database`.`@src_schema_omop`.`person` as p
 inner join (

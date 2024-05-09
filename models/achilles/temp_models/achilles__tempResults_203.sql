@@ -9,7 +9,7 @@ MODEL (
 with rawData (person_id, count_value) as (
   select
     vo.person_id,
-    count(distinct vo.visit_concept_id) as count_value
+    count(distinct vo.visit_concept_id)::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`visit_occurrence` as vo
     join
@@ -25,10 +25,10 @@ with rawData (person_id, count_value) as (
 ),
 overallStats (avg_value, stdev_value, min_value, max_value, total) as (
   select
-    cast(AVG(1.0 * count_value) as FLOAT) as avg_value,
-    cast(stddev(count_value) as FLOAT) as stdev_value,
-    MIN(count_value) as min_value,
-    MAX(count_value) as max_value,
+    AVG(1.0 * count_value)::FLOAT as avg_value,
+    stddev(count_value)::FLOAT as stdev_value,
+    MIN(count_value)::FLOAT as min_value,
+    MAX(count_value)::FLOAT as max_value,
     count(*) as total
   from rawData
 ),
@@ -51,7 +51,7 @@ priorStats (count_value, total, accumulated) as (
 )
 select
   203 as analysis_id,
-  o.total as count_value,
+  o.total::FLOAT as count_value,
   o.min_value,
   o.max_value,
   o.avg_value,
@@ -60,27 +60,27 @@ select
     case
       when p.accumulated >= .50 * o.total then count_value else o.max_value
     end
-  ) as median_value,
+  )::FLOAT as median_value,
   MIN(
     case
       when p.accumulated >= .10 * o.total then count_value else o.max_value
     end
-  ) as p10_value,
+  )::FLOAT as p10_value,
   MIN(
     case
       when p.accumulated >= .25 * o.total then count_value else o.max_value
     end
-  ) as p25_value,
+  )::FLOAT as p25_value,
   MIN(
     case
       when p.accumulated >= .75 * o.total then count_value else o.max_value
     end
-  ) as p75_value,
+  )::FLOAT as p75_value,
   MIN(
     case
       when p.accumulated >= .90 * o.total then count_value else o.max_value
     end
-  ) as p90_value
+  )::FLOAT as p90_value
 from priorStats as p
 cross join overallStats as o
 group by o.total, o.min_value, o.max_value, o.avg_value, o.stdev_value

@@ -14,7 +14,7 @@ select
   CAST(null as VARCHAR(255)) as stratum_3,
   CAST(null as VARCHAR(255)) as stratum_4,
   CAST(null as VARCHAR(255)) as stratum_5,
-  COUNT(distinct op1.PERSON_ID) as count_value
+  COUNT(distinct op1.PERSON_ID)::FLOAT as count_value
 from
   `@src_database`.`@src_schema_omop`.`observation_period` as op1
 inner join

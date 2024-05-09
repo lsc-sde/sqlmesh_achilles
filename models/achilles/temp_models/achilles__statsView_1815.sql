@@ -18,7 +18,7 @@ from (
   select
     m.measurement_concept_id as subject_id,
     m.unit_concept_id,
-    cast(m.value_as_number as FLOAT) as count_value
+    m.value_as_number::FLOAT as count_value
   from
     `@src_database`.`@src_schema_omop`.`measurement` as m
   inner join
