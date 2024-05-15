@@ -10,7 +10,7 @@ gateways:
         state_connection:
             type: duckdb
             catalogs:
-                persistent: 'sqlmesh_omop.duckdb'
+                persistent: './data/sqlmesh_state.duckdb'
         variables:
             temp_schema: temp
 variables:
